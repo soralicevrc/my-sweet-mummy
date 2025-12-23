@@ -2,13 +2,13 @@
 <html lang="ja">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6VBR31XP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3D6VBR31XP');
+    </script>
 
-  gtag('config', 'G-3D6VBR31XP');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merry Christmas - MY SWEET MUMMY</title>
@@ -16,21 +16,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* このページ限定の雪アニメーション */
+        .snow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjIuNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPjwvc3ZnPg==');
+            background-size: 20px 20px;
+            animation: snowFall 10s linear infinite;
+        }
+        @keyframes snowFall {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 500px; }
+        }
+    </style>
 </head>
 <body>
+    <div class="snow"></div>
 
-    <header class="header">
-        <div class="header-inner">
-            <h1 class="site-title" style="font-size: 1.5rem;">Merry<br>Christmas</h1>
-        </div>
+    <header class="header fade-in">
+        <h1 class="site-title" style="color:#d43f3f;">Merry<br>Christmas</h1>
     </header>
 
     <main>
-        <section class="section">
-            <div class="message-box" style="text-align: center; padding: 40px 20px;">
-                
-                <h2 style="color: #d43f3f; margin-bottom: 20px; font-size: 1.2rem;">
-                    🎁 Special Present 🎁
+        <section class="section fade-in">
+            <div class="glass-card message-box" style="border-color:#d43f3f;">
+                <h2 style="color: #d43f3f; margin-bottom: 20px; font-size: 1.4rem;">
+                    🎁 Special Present
                 </h2>
                 
                 <p class="desc-text" style="margin-bottom: 30px;">
@@ -40,21 +55,14 @@
 
                 <div class="video-wrap">
                     <iframe 
-                        src="https://www.youtube.com/embed/?????" 
+                        src="https://www.youtube.com/embed/ここにYouTubeの動画IDを入れる" 
                         title="YouTube video player" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
 
-                <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">
-                    ※再生ボタンを押してご覧ください
-                </p>
-
-                <a href="index.html" class="back-link">
-                    Topページに戻る
-                </a>
-
+                <a href="index.html" class="back-link">Topページに戻る</a>
             </div>
         </section>
     </main>
@@ -63,5 +71,13 @@
         <p>&copy; MY SWEET MUMMY</p>
     </footer>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
