@@ -1,76 +1,51 @@
 @charset "UTF-8";
 
 /* =========================================
-   基本設定：大人可愛いラグジュアリー
+   基本設定：Midnight Luxury
 ========================================= */
 :root {
-    /* カラーパレット */
-    --bg-gradient-start: #fff9fa;
-    --bg-gradient-end: #fcece4;
-    --text-main: #5d4037;       /* 焦げ茶 */
-    --text-sub: #8d7b75;
-    --accent-gold: #c5a059;     /* シャンパンゴールド */
-    --accent-pink: #e68aa6;     /* 大人ピンク */
-    --glass-bg: rgba(255, 255, 255, 0.75); /* すりガラス用 */
-    --glass-border: rgba(255, 255, 255, 0.9);
-    --shadow-soft: 0 10px 30px rgba(197, 160, 89, 0.15);
-    --font-main: "Zen Maru Gothic", sans-serif;
+    --bg-color: #121212;       /* 漆黒 */
+    --card-bg: #1e1e1e;        /* ダークグレー */
+    --text-main: #f0f0f0;      /* オフホワイト */
+    --text-sub: #aaaaaa;       /* シルバーグレー */
+    --gold: #c8aa6e;           /* シャンパンゴールド */
+    --gold-hover: #e0c386;     /* 明るいゴールド */
+    --red-deep: #8a1c1c;       /* 深紅（クリスマス用） */
+    --font-serif: "Shippori Mincho", serif;
+    --font-sans: "Zen Kaku Gothic New", sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: var(--font-main);
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
     color: var(--text-main);
-    line-height: 1.8;
-    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* 背景にふわふわ浮かぶ光のアニメーション */
-body::before {
-    content: "";
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 60%),
-                radial-gradient(circle, rgba(255,240,245,0.5) 0%, transparent 40%);
-    background-size: 50% 50%, 60% 60%;
-    background-position: 0 0, 100px 100px;
-    animation: floatingLight 20s linear infinite;
-    z-index: -1;
-    pointer-events: none;
-}
-
-@keyframes floatingLight {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-20px, -20px); }
-    100% { transform: translate(0, 0); }
+    line-height: 2.0; /* ゆったりとした行間 */
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 img {
     max-width: 100%;
     vertical-align: bottom;
+    display: block;
 }
 
 /* =========================================
-   フェードインアニメーション用クラス
+   フェードイン演出（控えめで上品に）
 ========================================= */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(15px);
+    transition: opacity 1.0s ease, transform 1.0s ease;
 }
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
@@ -80,320 +55,312 @@ img {
    ヘッダー
 ========================================= */
 .header {
+    padding: 80px 20px 60px;
     text-align: center;
-    padding: 80px 20px 50px;
 }
 
 .site-title {
-    font-size: 3rem;
-    color: var(--accent-gold);
-    line-height: 1.1;
-    letter-spacing: 0.1em;
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1.2;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 0 #fff;
-    font-weight: 700;
+    letter-spacing: 0.15em;
+    font-weight: 500;
 }
 
 .sub-title {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-sub);
-    letter-spacing: 0.05em;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 5px 20px;
-    border-radius: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     display: inline-block;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
 }
 
 /* =========================================
    レイアウト・セクション
 ========================================= */
 main {
-    max-width: 600px; /* スマホ最適化幅 */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px 80px;
+    padding: 0 20px 100px;
 }
 
 .section {
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 }
 
 .section-title {
     text-align: center;
-    font-size: 1.5rem;
-    color: var(--text-main);
-    margin-bottom: 30px;
-    letter-spacing: 0.15em;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.section-title::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 2px;
-    background-color: var(--accent-gold);
-    margin: 10px auto 0;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 40px;
+    letter-spacing: 0.2em;
 }
 
 /* =========================================
-   グラスモーフィズム・カードデザイン
+   カードデザイン（シンプル＆フラット）
 ========================================= */
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 30px;
-    box-shadow: var(--shadow-soft);
+.card-box {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(200, 170, 110, 0.2); /* 薄いゴールド枠 */
+    padding: 40px 30px;
+    text-align: center;
 }
 
 /* メッセージ */
-.message-box {
-    text-align: center;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-}
-
 .main-copy {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    background: linear-gradient(to right, #e68aa6, #c5a059);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
 }
-
 .desc-text {
     font-size: 0.95rem;
     color: var(--text-sub);
 }
 
-/* Information */
-.info-row {
+/* Information（リスト形式） */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+.info-item {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.info-row:last-child {
+.info-item:last-child {
     border-bottom: none;
 }
-.label {
-    font-weight: bold;
-    color: var(--accent-gold);
+.info-label {
+    color: var(--gold);
     font-size: 0.9rem;
+    width: 30%;
 }
-.value {
+.info-value {
+    width: 70%;
     text-align: right;
     font-size: 0.95rem;
+    color: var(--text-main);
 }
 
 /* =========================================
    インスタンス・カルーセル
 ========================================= */
-.instance-box {
-    margin-bottom: 40px;
-    padding: 20px;
+.instance-wrapper {
+    margin-bottom: 60px;
 }
 
 .instance-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
     padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.instance-title {
-    font-size: 1.1rem;
+.instance-name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
     color: var(--text-main);
-    font-weight: bold;
 }
 
-.il-btn {
-    background-color: #fff;
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    padding: 6px 15px;
-    border-radius: 20px;
+/* ILボタン（実用性重視） */
+.il-link {
     font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 5px 15px;
+    transition: 0.3s;
 }
-.il-btn::before {
-    content: "✦"; 
-}
-.il-btn:hover {
-    background-color: var(--accent-gold);
-    color: #fff;
+.il-link:hover {
+    background-color: var(--gold);
+    color: #000;
 }
 
-.carousel-container {
+.friend-note {
+    font-size: 0.7rem;
+    color: var(--text-sub);
+    text-align: right;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* カルーセル */
+.carousel-area {
     position: relative;
     display: flex;
     align-items: center;
 }
-
 .carousel-track {
     display: flex;
     gap: 15px;
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 10px 5px;
+    padding-bottom: 10px; /* スクロールバー用余白 */
     scrollbar-width: none;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .slide-item {
-    flex: 0 0 85%; /* スマホで少し隣が見えるサイズ感 */
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    flex: 0 0 280px; /* PCでの幅 */
+    scroll-snap-align: start;
+    position: relative;
+    transition: opacity 0.3s;
 }
-.slide-item:hover {
-    transform: translateY(-3px);
+/* スマホ調整 */
+@media (max-width: 600px) {
+    .slide-item { flex: 0 0 85%; }
 }
+
 .slide-item img {
     width: 100%;
-    height: auto;
     aspect-ratio: 16/9;
     object-fit: cover;
+    filter: brightness(0.8); /* 少し暗くして落ち着かせる */
+    transition: filter 0.3s;
+}
+.slide-item:hover img {
+    filter: brightness(1.1); /* ホバーで明るく */
 }
 
-/* 矢印ボタン */
-.carousel-btn {
-    position: absolute;
-    background: rgba(255,255,255,0.9);
+/* 矢印 */
+.nav-btn {
+    background: transparent;
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    color: var(--text-main);
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: var(--gold);
+    font-size: 2rem;
     cursor: pointer;
-    z-index: 2;
+    padding: 0 10px;
+    transition: transform 0.2s;
 }
-.prev-btn { left: -15px; }
-.next-btn { right: -15px; }
+.nav-btn:hover { transform: scale(1.2); }
 
 /* =========================================
-   ボタンデザイン（高級感）
+   ボタン類（高級感・視認性）
 ========================================= */
-.cute-btn {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 16px 40px;
-    background: linear-gradient(135deg, #e68aa6, #dba2b4);
+.btn-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.gold-btn {
+    display: inline-block;
+    background-color: var(--gold);
+    color: #000;
+    padding: 18px 60px;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    transition: 0.3s;
+    min-width: 200px;
+    text-align: center;
+}
+.gold-btn:hover {
+    background-color: var(--gold-hover);
+    letter-spacing: 0.15em;
+}
+
+/* VRChatボタン */
+.vrc-btn {
+    background-color: transparent;
+    border: 1px solid #00d1cd;
+    color: #00d1cd;
+}
+.vrc-btn:hover {
+    background-color: rgba(0, 209, 205, 0.1);
+}
+
+/* クリスマスボタン（深紅） */
+.xmas-btn {
+    background-color: var(--red-deep);
     color: #fff;
-    font-weight: bold;
-    border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(230, 138, 166, 0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.xmas-btn:hover {
+    background-color: #a82525;
+}
+
+/* Xボタン */
+.x-btn {
+    background-color: #000;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+/* =========================================
+   キャスト一覧 (Grid)
+========================================= */
+.cast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+}
+.cast-card {
+    display: block;
     position: relative;
     overflow: hidden;
-    font-size: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #333;
 }
-
-/* ボタンの光沢エフェクト */
-.cute-btn::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.cast-card img {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-20deg) translateX(-150%);
+    height: auto;
+    aspect-ratio: 1/1; /* 正方形で統一 */
+    object-fit: cover;
     transition: transform 0.5s;
+    filter: grayscale(30%); /* 少し彩度を落として統一感 */
+}
+.cast-card:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
 }
 
-.cute-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(230, 138, 166, 0.5);
+/* =========================================
+   動画ページ用
+========================================= */
+.video-frame {
+    width: 100%;
+    padding-bottom: 56.25%;
+    position: relative;
+    background: #000;
+    border: 1px solid #333;
+    margin-bottom: 30px;
 }
-.cute-btn:hover::after {
-    transform: skewX(-20deg) translateX(150%);
-}
-
-.vrc-btn {
-    background: linear-gradient(135deg, #6bbfa8, #8edecb);
-    box-shadow: 0 10px 20px rgba(107, 191, 168, 0.4);
-}
-
-.xmas-btn {
-    background: linear-gradient(135deg, #d43f3f, #ff6b6b);
-    box-shadow: 0 10px 20px rgba(212, 63, 63, 0.4);
-    border: 2px solid rgba(255,255,255,0.3);
+.video-frame iframe {
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
 }
 
-.black-btn {
-    background: #333;
-    color: #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.back-link {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+.back-link:hover {
+    color: var(--gold);
+    border-color: var(--gold);
 }
 
 /* =========================================
    フッター
 ========================================= */
 .footer {
+    border-top: 1px solid #222;
+    padding-top: 40px;
     text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-sub);
-    margin-top: 40px;
-}
-
-/* =========================================
-   動画ページ用
-========================================= */
-.video-wrap {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: var(--shadow-soft);
-    border: 4px solid #fff;
-}
-.video-wrap iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 30px;
-    color: var(--text-sub);
-    font-size: 0.9rem;
-    border-bottom: 1px solid currentColor;
-}
-
-/* =========================================
-   キャスト一覧ページ用グリッド
-========================================= */
-.cast-grid-wide {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.cast-link-card {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    border: 3px solid #fff;
-    transition: transform 0.3s;
-}
-.cast-link-card:hover {
-    transform: scale(1.05);
-    z-index: 10;
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 0.1em;
 }
