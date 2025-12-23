@@ -11,49 +11,36 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merry Christmas - MY SWEET MUMMY</title>
+    <title>Xmas Special | MY SWEET MUMMY</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* このページ限定の雪アニメーション */
-        .snow {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 999;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMCAxMCI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjIuNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPjwvc3ZnPg==');
-            background-size: 20px 20px;
-            animation: snowFall 10s linear infinite;
-        }
-        @keyframes snowFall {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 500px; }
-        }
+        /* クリスマスページ特別色 */
+        .site-title { color: #8a1c1c; }
+        .xmas-frame { border: 1px solid #8a1c1c; background: #000; padding: 20px; }
     </style>
 </head>
 <body>
-    <div class="snow"></div>
 
     <header class="header fade-in">
-        <h1 class="site-title" style="color:#d43f3f;">Merry<br>Christmas</h1>
+        <h1 class="site-title">Merry<br>Christmas</h1>
+        <p class="sub-title">Special Gift for You</p>
     </header>
 
     <main>
         <section class="section fade-in">
-            <div class="glass-card message-box" style="border-color:#d43f3f;">
-                <h2 style="color: #d43f3f; margin-bottom: 20px; font-size: 1.4rem;">
-                    🎁 Special Present
-                </h2>
-                
+            <div class="card-box xmas-frame">
+                <p class="main-copy" style="color:#d4af37;">
+                    聖なる夜に、<br>特別な癒やしを。
+                </p>
                 <p class="desc-text" style="margin-bottom: 30px;">
-                    ママからの朗読動画をプレゼント。<br>
-                    心温まるひとときをお過ごしください。
+                    ママたちからの朗読動画です。<br>
+                    どうぞ、ごゆっくりお楽しみください。
                 </p>
 
-                <div class="video-wrap">
+                <div class="video-frame">
                     <iframe 
                         src="https://www.youtube.com/embed/ここにYouTubeの動画IDを入れる" 
                         title="YouTube video player" 
@@ -62,7 +49,7 @@
                     </iframe>
                 </div>
 
-                <a href="index.html" class="back-link">Topページに戻る</a>
+                <a href="index.html" class="back-link">Return to Top</a>
             </div>
         </section>
     </main>
@@ -72,12 +59,10 @@
     </footer>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
         });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach(e => observer.observe(e));
     </script>
 </body>
 </html>
