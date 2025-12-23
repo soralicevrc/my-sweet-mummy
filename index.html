@@ -11,11 +11,12 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY SWEET MUMMY - ママに甘えられる癒やしイベント</title>
+    <title>MY SWEET MUMMY | Luxury VRC Event</title>
     <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -26,64 +27,69 @@
 
     <main>
         <section class="section fade-in">
-            <div class="glass-card message-box">
+            <div class="card-box">
                 <p class="main-copy">
                     今夜だけでも<br>
-                    ママに甘えてみませんか？
+                    すべてを委ねてみませんか。
                 </p>
                 <p class="desc-text">
-                    毎日がんばるあなたへ。<br>
-                    優しいママたちが、<br>
-                    すべてを受け入れて癒やします。
+                    毎日戦うあなたへ、極上の癒やしを。<br>
+                    選ばれたキャストたちが、<br>
+                    心ゆくまであなたを包み込みます。
                 </p>
             </div>
         </section>
 
-        <section class="section fade-in" style="margin-top: -30px;">
-            <a href="christmas.html" class="cute-btn xmas-btn">
-                🎄 クリスマスプレゼントを受け取る
-            </a>
+        <section class="section fade-in">
+            <div class="btn-container" style="margin-top: -50px;">
+                <a href="christmas.html" class="gold-btn xmas-btn">
+                    Xmas Special Gift
+                </a>
+                <p style="margin-top:10px; font-size:0.8rem; color:#8a1c1c;">※ ママからの朗読動画</p>
+            </div>
         </section>
 
         <section class="section fade-in">
             <h2 class="section-title">Information</h2>
-            <div class="glass-card">
-                <div class="info-row">
-                    <span class="label">開催日時</span>
-                    <span class="value">毎週 火曜日<br>22:00 - 23:00</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">環境</span>
-                    <span class="value">PCVR限定</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">参加方法</span>
-                    <span class="value" style="font-size: 0.85rem; line-height: 1.6;">
-                        1. 引用RPキャンペーンへ参加<br>
-                        2. インスタンスのILにフレンド申請<br>
-                        3. 当日21:55～21:58にリクイン送信
-                    </span>
-                </div>
+            <div class="card-box" style="text-align: left;">
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">OPEN</span>
+                        <span class="info-value">Every Tuesday<br>22:00 - 23:00</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">SYSTEM</span>
+                        <span class="info-value">PCVR Only</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">ENTRY</span>
+                        <span class="info-value" style="line-height:1.8;">
+                            1. 引用RPキャンペーンへ参加<br>
+                            2. 以下のILにフレンド申請<br>
+                            3. 当日21:55～ リクイン送信
+                        </span>
+                    </li>
+                </ul>
             </div>
         </section>
 
         <section class="section fade-in">
-            <h2 class="section-title">Members</h2>
-            <p class="desc-text" style="text-align: center; margin-bottom: 20px;">
-                今回の出勤ママ一覧
+            <h2 class="section-title">Cast Members</h2>
+            <p style="text-align:center; color:#666; margin-bottom:40px; font-size:0.8rem;">
+                今夜の出勤キャスト
             </p>
 
-            <div class="glass-card instance-box">
+            <div class="instance-wrapper">
                 <div class="instance-header">
-                    <span class="instance-title">Instance 1</span>
-                    <a href="https://vrchat.com/home/user/usr_b6fdc2ee-f561-4576-884a-1f5501ad211f" target="_blank" class="il-btn">
-                        IL: ジン__ (Req Invite)
+                    <span class="instance-name">Instance 1</span>
+                    <a href="https://vrchat.com/home/user/usr_b6fdc2ee-f561-4576-884a-1f5501ad211f" target="_blank" class="il-link">
+                        IL: ジン__
                     </a>
                 </div>
-                <p style="font-size:0.7rem; color:#e68aa6; margin-bottom:10px; text-align:right;">※名前タップでフレンド申請へ</p>
+                <span class="friend-note">※名前をタップしてフレンド申請</span>
 
-                <div class="carousel-container">
-                    <button class="carousel-btn prev-btn" onclick="slideLeft('inst1')">‹</button>
+                <div class="carousel-area">
+                    <button class="nav-btn" onclick="slideLeft('inst1')">‹</button>
                     <div class="carousel-track" id="inst1">
                         <a href="https://twitter.com/AmanomeHinoto" target="_blank" class="slide-item"><img src="./images/mama_9.png" alt="9"></a>
                         <a href="https://twitter.com/napu_nana" target="_blank" class="slide-item"><img src="./images/mama_16.png" alt="16"></a>
@@ -92,21 +98,21 @@
                         <a href="https://twitter.com/comyui_211vt" target="_blank" class="slide-item"><img src="./images/mama_22.png" alt="22"></a>
                         <a href="https://twitter.com/mio__miori" target="_blank" class="slide-item"><img src="./images/mama_18.png" alt="18"></a>
                     </div>
-                    <button class="carousel-btn next-btn" onclick="slideRight('inst1')">›</button>
+                    <button class="nav-btn" onclick="slideRight('inst1')">›</button>
                 </div>
             </div>
 
-            <div class="glass-card instance-box">
+            <div class="instance-wrapper">
                 <div class="instance-header">
-                    <span class="instance-title">Instance 2</span>
-                    <a href="https://vrchat.com/home/user/usr_d7d56207-7946-4ace-898b-fb73f60e9d45" target="_blank" class="il-btn">
+                    <span class="instance-name">Instance 2</span>
+                    <a href="https://vrchat.com/home/user/usr_d7d56207-7946-4ace-898b-fb73f60e9d45" target="_blank" class="il-link">
                         IL: そらりす。__ev
                     </a>
                 </div>
-                <p style="font-size:0.7rem; color:#e68aa6; margin-bottom:10px; text-align:right;">※名前タップでフレンド申請へ</p>
+                <span class="friend-note">※名前をタップしてフレンド申請</span>
 
-                <div class="carousel-container">
-                    <button class="carousel-btn prev-btn" onclick="slideLeft('inst2')">‹</button>
+                <div class="carousel-area">
+                    <button class="nav-btn" onclick="slideLeft('inst2')">‹</button>
                     <div class="carousel-track" id="inst2">
                         <a href="https://twitter.com/mayu__VR" target="_blank" class="slide-item"><img src="./images/mama_2.png" alt="2"></a>
                         <a href="https://twitter.com/k0ity4" target="_blank" class="slide-item"><img src="./images/mama_21.png" alt="21"></a>
@@ -114,59 +120,49 @@
                         <a href="https://twitter.com/tyobibi125" target="_blank" class="slide-item"><img src="./images/mama_10.png" alt="10"></a>
                         <a href="https://twitter.com/HANIchan0821" target="_blank" class="slide-item"><img src="./images/mama_5.png" alt="5"></a>
                     </div>
-                    <button class="carousel-btn next-btn" onclick="slideRight('inst2')">›</button>
+                    <button class="nav-btn" onclick="slideRight('inst2')">›</button>
                 </div>
             </div>
         </section>
 
         <section class="section fade-in">
             <h2 class="section-title">All Cast</h2>
-            <a href="cast.html" class="cute-btn" style="background: linear-gradient(135deg, #c5a059, #e6c88a); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.4);">
-                在籍ママ一覧を見る
-            </a>
+            <div class="btn-container">
+                <a href="cast.html" class="gold-btn">
+                    View All Members
+                </a>
+            </div>
         </section>
 
         <section class="section fade-in">
-            <h2 class="section-title">Official X</h2>
-            <p class="desc-text" style="text-align: center; margin-bottom: 20px;">最新情報はXでチェック！</p>
-            <a href="https://twitter.com/MySweetMummy" target="_blank" class="cute-btn black-btn">
-                <span style="margin-right:8px; font-size:1.2em;">𝕏</span> 公式Xを見る
-            </a>
-        </section>
-
-        <section class="section fade-in">
-            <h2 class="section-title">Join Us</h2>
-            <a href="https://vrchat.com/home/group/grp_245b88df-3e82-4f2e-b107-5de9433f4d3a" target="_blank" class="cute-btn vrc-btn">
-                VRChat Group
-            </a>
+            <h2 class="section-title">Links</h2>
+            <div class="btn-container" style="display:flex; flex-direction:column; gap:20px; align-items:center;">
+                <a href="https://twitter.com/MySweetMummy" target="_blank" class="gold-btn x-btn" style="width:100%; max-width:300px;">
+                    Official X (Twitter)
+                </a>
+                <a href="https://vrchat.com/home/group/grp_245b88df-3e82-4f2e-b107-5de9433f4d3a" target="_blank" class="gold-btn vrc-btn" style="width:100%; max-width:300px;">
+                    VRChat Group
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer class="footer fade-in">
-        <p>&copy; MY SWEET MUMMY</p>
+    <footer class="footer">
+        <p>&copy; 2024 MY SWEET MUMMY</p>
     </footer>
 
     <script>
-        // スクロール時のフェードイン制御
-        const observer = new IntersectionObserver((entries) => {
+        // フェードイン制御
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if(entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach(e => observer.observe(e));
 
         // カルーセル制御
-        function slideRight(id) {
-            const track = document.getElementById(id);
-            track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
-        }
-        function slideLeft(id) {
-            const track = document.getElementById(id);
-            track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' });
-        }
+        function slideLeft(id) { document.getElementById(id).scrollBy({left: -300, behavior: 'smooth'}); }
+        function slideRight(id) { document.getElementById(id).scrollBy({left: 300, behavior: 'smooth'}); }
     </script>
 </body>
 </html>
