@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 /* =========================================
-   基本設定：Midnight Luxury
+   Theme: Warm Minimal Luxury
 ========================================= */
 :root {
-    --bg-color: #121212;       /* 漆黒 */
-    --card-bg: #1e1e1e;        /* ダークグレー */
-    --text-main: #f0f0f0;      /* オフホワイト */
-    --text-sub: #aaaaaa;       /* シルバーグレー */
-    --gold: #c8aa6e;           /* シャンパンゴールド */
-    --gold-hover: #e0c386;     /* 明るいゴールド */
-    --red-deep: #8a1c1c;       /* 深紅（クリスマス用） */
+    --bg-color: #f9f8f6;       /* 生成り色（温かい白） */
+    --card-bg: #ffffff;        /* 真っ白 */
+    --text-main: #4a4a4a;      /* 柔らかい黒 */
+    --text-sub: #8c8c8c;       /* グレー */
+    --accent-gold: #c5a059;    /* シャンパンゴールド */
+    --accent-red: #a83232;     /* 深紅（クリスマス用） */
     --font-serif: "Shippori Mincho", serif;
     --font-sans: "Zen Kaku Gothic New", sans-serif;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* 非常に繊細な影 */
 }
 
 body {
@@ -21,182 +21,174 @@ body {
     font-family: var(--font-sans);
     background-color: var(--bg-color);
     color: var(--text-main);
-    line-height: 2.0; /* ゆったりとした行間 */
-    letter-spacing: 0.05em;
+    line-height: 1.9;
+    letter-spacing: 0.08em;
     -webkit-font-smoothing: antialiased;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.3s ease, color 0.3s ease;
-}
+a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+img { width: 100%; display: block; }
+h1, h2, h3 { margin: 0; font-weight: 500; font-family: var(--font-serif); }
 
-img {
-    max-width: 100%;
-    vertical-align: bottom;
-    display: block;
-}
+/* フェードインアニメーション */
+.fade-in { opacity: 0; transform: translateY(20px); transition: 1s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* =========================================
-   フェードイン演出（控えめで上品に）
-========================================= */
-.fade-in {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 1.0s ease, transform 1.0s ease;
-}
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================================
-   ヘッダー
+   Header
 ========================================= */
 .header {
     padding: 80px 20px 60px;
     text-align: center;
+    background: linear-gradient(to bottom, #fff, var(--bg-color));
 }
 
 .site-title {
-    font-family: var(--font-serif);
-    font-size: 2.8rem;
-    color: var(--gold);
-    line-height: 1.2;
+    font-size: 2.2rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.2em;
     margin-bottom: 20px;
-    letter-spacing: 0.15em;
-    font-weight: 500;
 }
 
 .sub-title {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-sub);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
     display: inline-block;
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 5px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    width: 200px;
 }
 
 /* =========================================
-   レイアウト・セクション
+   Layout
 ========================================= */
 main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px 100px;
+    padding: 0 20px 80px;
 }
 
-.section {
-    margin-bottom: 100px;
-}
+.section { margin-bottom: 100px; }
 
 .section-title {
     text-align: center;
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: var(--gold);
+    font-size: 1.6rem;
     margin-bottom: 40px;
+    color: var(--text-main);
+}
+.section-title span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-family: var(--font-sans);
     letter-spacing: 0.2em;
 }
 
 /* =========================================
-   カードデザイン（シンプル＆フラット）
+   Card Design (High-end)
 ========================================= */
-.card-box {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(200, 170, 110, 0.2); /* 薄いゴールド枠 */
-    padding: 40px 30px;
+.card {
+    background: var(--card-bg);
+    padding: 50px 30px;
+    box-shadow: var(--shadow);
+    border-radius: 8px; /* 角丸を小さくして大人っぽく */
     text-align: center;
 }
 
-/* メッセージ */
 .main-copy {
     font-family: var(--font-serif);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 30px;
-    line-height: 1.8;
+    line-height: 2.2;
 }
+
 .desc-text {
     font-size: 0.95rem;
     color: var(--text-sub);
 }
 
-/* Information（リスト形式） */
+/* =========================================
+   Information List
+========================================= */
 .info-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
 }
 .info-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
 }
-.info-item:last-child {
-    border-bottom: none;
-}
-.info-label {
-    color: var(--gold);
+.info-label { color: var(--accent-gold); font-size: 0.9rem; font-weight: bold; }
+.info-value { text-align: right; }
+
+/* =========================================
+   Buttons
+========================================= */
+.btn-wrapper { text-align: center; margin-top: 40px; }
+
+.simple-btn {
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: var(--text-main);
+    color: #fff;
     font-size: 0.9rem;
-    width: 30%;
+    letter-spacing: 0.1em;
+    min-width: 240px;
+    transition: 0.3s;
 }
-.info-value {
-    width: 70%;
-    text-align: right;
-    font-size: 0.95rem;
-    color: var(--text-main);
+.simple-btn:hover {
+    background-color: var(--accent-gold);
+    color: #fff;
+}
+
+/* クリスマスボタン（特別仕様） */
+.xmas-btn {
+    background-color: #fff;
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    box-shadow: 0 5px 20px rgba(168, 50, 50, 0.1);
+}
+.xmas-btn:hover {
+    background-color: var(--accent-red);
+    color: #fff;
+}
+
+.vrc-btn {
+    background-color: #fff;
+    color: #00d1cd;
+    border: 1px solid #00d1cd;
+}
+.vrc-btn:hover {
+    background-color: #e0fbfb;
 }
 
 /* =========================================
-   インスタンス・カルーセル
+   Cast Carousel
 ========================================= */
-.instance-wrapper {
-    margin-bottom: 60px;
-}
+.instance-block { margin-bottom: 60px; }
 
-.instance-header {
+.instance-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid var(--bg-color);
 }
+.inst-name { font-size: 1.1rem; font-family: var(--font-serif); }
 
-.instance-name {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--text-main);
-}
-
-/* ILボタン（実用性重視） */
 .il-link {
     font-size: 0.8rem;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    padding: 5px 15px;
-    transition: 0.3s;
-}
-.il-link:hover {
-    background-color: var(--gold);
-    color: #000;
-}
-
-.friend-note {
-    font-size: 0.7rem;
     color: var(--text-sub);
-    text-align: right;
-    margin-bottom: 15px;
-    display: block;
+    border-bottom: 1px solid #ccc;
 }
+.friend-notice { font-size: 0.7rem; color: #ccc; display: block; text-align: right; margin-bottom: 10px;}
 
-/* カルーセル */
-.carousel-area {
+.carousel-wrap {
     position: relative;
     display: flex;
     align-items: center;
@@ -207,160 +199,80 @@ main {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding-bottom: 10px; /* スクロールバー用余白 */
+    padding-bottom: 10px;
     scrollbar-width: none;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .slide-item {
-    flex: 0 0 280px; /* PCでの幅 */
+    flex: 0 0 280px;
     scroll-snap-align: start;
-    position: relative;
-    transition: opacity 0.3s;
 }
-/* スマホ調整 */
 @media (max-width: 600px) {
     .slide-item { flex: 0 0 85%; }
 }
 
 .slide-item img {
-    width: 100%;
+    border-radius: 4px;
     aspect-ratio: 16/9;
     object-fit: cover;
-    filter: brightness(0.8); /* 少し暗くして落ち着かせる */
-    transition: filter 0.3s;
-}
-.slide-item:hover img {
-    filter: brightness(1.1); /* ホバーで明るく */
+    filter: sepia(10%); /* ほんのり温かみを足すフィルタ */
 }
 
-/* 矢印 */
 .nav-btn {
-    background: transparent;
-    border: none;
-    color: var(--gold);
-    font-size: 2rem;
+    background: #fff;
+    border: 1px solid #eee;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    color: var(--text-main);
     cursor: pointer;
-    padding: 0 10px;
-    transition: transform 0.2s;
-}
-.nav-btn:hover { transform: scale(1.2); }
-
-/* =========================================
-   ボタン類（高級感・視認性）
-========================================= */
-.btn-container {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.gold-btn {
-    display: inline-block;
-    background-color: var(--gold);
-    color: #000;
-    padding: 18px 60px;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    transition: 0.3s;
-    min-width: 200px;
-    text-align: center;
-}
-.gold-btn:hover {
-    background-color: var(--gold-hover);
-    letter-spacing: 0.15em;
-}
-
-/* VRChatボタン */
-.vrc-btn {
-    background-color: transparent;
-    border: 1px solid #00d1cd;
-    color: #00d1cd;
-}
-.vrc-btn:hover {
-    background-color: rgba(0, 209, 205, 0.1);
-}
-
-/* クリスマスボタン（深紅） */
-.xmas-btn {
-    background-color: var(--red-deep);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-.xmas-btn:hover {
-    background-color: #a82525;
-}
-
-/* Xボタン */
-.x-btn {
-    background-color: #000;
-    border: 1px solid #333;
-    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 2;
 }
 
 /* =========================================
-   キャスト一覧 (Grid)
+   Cast Grid (Page)
 ========================================= */
 .cast-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px;
 }
-.cast-card {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #333;
-}
+.cast-card { display: block; transition: 0.3s; }
+.cast-card:hover { opacity: 0.7; }
 .cast-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1; /* 正方形で統一 */
+    border-radius: 4px;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    transition: transform 0.5s;
-    filter: grayscale(30%); /* 少し彩度を落として統一感 */
-}
-.cast-card:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0%);
 }
 
 /* =========================================
-   動画ページ用
+   Video & Footer
 ========================================= */
-.video-frame {
-    width: 100%;
-    padding-bottom: 56.25%;
+.video-container {
     position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
     background: #000;
-    border: 1px solid #333;
     margin-bottom: 30px;
 }
-.video-frame iframe {
-    position: absolute;
-    top:0; left:0; width:100%; height:100%;
-}
+.video-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
 
 .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 0.85rem;
     color: var(--text-sub);
-    font-size: 0.9rem;
-    border-bottom: 1px solid #555;
-    padding-bottom: 5px;
-}
-.back-link:hover {
-    color: var(--gold);
-    border-color: var(--gold);
+    border-bottom: 1px solid #ddd;
 }
 
-/* =========================================
-   フッター
-========================================= */
 .footer {
-    border-top: 1px solid #222;
-    padding-top: 40px;
     text-align: center;
-    font-size: 0.7rem;
-    color: #555;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    color: var(--text-sub);
+    font-size: 0.75rem;
     letter-spacing: 0.1em;
 }
