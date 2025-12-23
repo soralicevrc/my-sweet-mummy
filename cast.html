@@ -2,16 +2,16 @@
 <html lang="ja">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6VBR31XP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3D6VBR31XP');
+    </script>
 
-  gtag('config', 'G-3D6VBR31XP');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mama - MY SWEET MUMMY</title>
+    <title>All Members - MY SWEET MUMMY</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,15 @@
 </head>
 <body>
 
-    <header class="header" style="padding: 40px 20px;">
-        <h1 class="site-title" style="font-size: 2rem;">MAMA</h1>
+    <header class="header fade-in">
+        <h1 class="site-title" style="font-size: 2.5rem;">All Cast</h1>
         <p class="sub-title">自慢のママたちをご紹介</p>
     </header>
 
     <main>
-        <section class="section cast-page-section">
-            <p class="desc-text" style="margin-bottom: 30px; font-size: 0.9rem;">
-                画像をタップすると<br>X(Twitter)へ移動します
+        <section class="section fade-in" style="max-width: 900px;">
+            <p class="desc-text" style="text-align: center; margin-bottom: 40px;">
+                画像をタップすると<br>X (Twitter) へ移動します
             </p>
 
             <div class="cast-grid-wide">
@@ -126,15 +126,25 @@
 
             </div>
 
-            <div style="margin-top: 50px;">
-                <a href="index.html" class="cute-btn">TOPへ戻る</a>
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="index.html" class="back-link">TOPへ戻る</a>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer fade-in">
         <p>&copy; MY SWEET MUMMY</p>
     </footer>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
