@@ -15,32 +15,28 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* クリスマスページ特別色 */
-        .site-title { color: #8a1c1c; }
-        .xmas-frame { border: 1px solid #8a1c1c; background: #000; padding: 20px; }
+        .page-title { color: #a83232; font-size: 2.5rem; letter-spacing: 0.1em; margin-bottom: 10px; }
+        .gift-msg { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 30px; }
     </style>
 </head>
 <body>
 
     <header class="header fade-in">
-        <h1 class="site-title">Merry<br>Christmas</h1>
+        <h1 class="page-title">Merry Christmas</h1>
         <p class="sub-title">Special Gift for You</p>
     </header>
 
     <main>
         <section class="section fade-in">
-            <div class="card-box xmas-frame">
-                <p class="main-copy" style="color:#d4af37;">
-                    聖なる夜に、<br>特別な癒やしを。
-                </p>
-                <p class="desc-text" style="margin-bottom: 30px;">
-                    ママたちからの朗読動画です。<br>
-                    どうぞ、ごゆっくりお楽しみください。
+            <div class="card" style="border: 2px solid #a83232;">
+                <p class="gift-msg">
+                    聖なる夜に、温かい癒やしを。<br>
+                    ママたちからの朗読動画です。
                 </p>
 
-                <div class="video-frame">
+                <div class="video-container">
                     <iframe 
                         src="https://www.youtube.com/embed/ここにYouTubeの動画IDを入れる" 
                         title="YouTube video player" 
@@ -49,7 +45,7 @@
                     </iframe>
                 </div>
 
-                <a href="index.html" class="back-link">Return to Top</a>
+                <a href="index.html" class="back-link">TOPへ戻る</a>
             </div>
         </section>
     </main>
