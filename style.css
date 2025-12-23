@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 /* =========================================
-   Theme: Warm Minimal Luxury
+   Theme: Warm Minimal Luxury (16:9 Edition)
 ========================================= */
 :root {
-    --bg-color: #f9f8f6;       /* 生成り色（温かい白） */
-    --card-bg: #ffffff;        /* 真っ白 */
-    --text-main: #4a4a4a;      /* 柔らかい黒 */
-    --text-sub: #8c8c8c;       /* グレー */
+    --bg-color: #f9f8f6;       /* 生成り色 */
+    --card-bg: #ffffff;        /* 白 */
+    --text-main: #4a4a4a;      /* 墨色 */
+    --text-sub: #8c8c8c;       /* 鈍色 */
     --accent-gold: #c5a059;    /* シャンパンゴールド */
-    --accent-red: #a83232;     /* 深紅（クリスマス用） */
+    --accent-red: #a83232;     /* 深紅 */
     --font-serif: "Shippori Mincho", serif;
     --font-sans: "Zen Kaku Gothic New", sans-serif;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* 非常に繊細な影 */
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
 }
 
 body {
@@ -30,7 +30,7 @@ a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
 img { width: 100%; display: block; }
 h1, h2, h3 { margin: 0; font-weight: 500; font-family: var(--font-serif); }
 
-/* フェードインアニメーション */
+/* フェードイン */
 .fade-in { opacity: 0; transform: translateY(20px); transition: 1s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -63,7 +63,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; font-family: var(--font-serif); }
    Layout
 ========================================= */
 main {
-    max-width: 800px;
+    max-width: 900px; /* 横長画像に合わせて少し幅を広げました */
     margin: 0 auto;
     padding: 0 20px 80px;
 }
@@ -86,13 +86,13 @@ main {
 }
 
 /* =========================================
-   Card Design (High-end)
+   Card Design
 ========================================= */
 .card {
     background: var(--card-bg);
     padding: 50px 30px;
     box-shadow: var(--shadow);
-    border-radius: 8px; /* 角丸を小さくして大人っぽく */
+    border-radius: 8px;
     text-align: center;
 }
 
@@ -102,25 +102,12 @@ main {
     margin-bottom: 30px;
     line-height: 2.2;
 }
+.desc-text { font-size: 0.95rem; color: var(--text-sub); }
 
-.desc-text {
-    font-size: 0.95rem;
-    color: var(--text-sub);
-}
-
-/* =========================================
-   Information List
-========================================= */
-.info-list {
-    text-align: left;
-    max-width: 500px;
-    margin: 0 auto;
-}
+/* Information List */
+.info-list { text-align: left; max-width: 500px; margin: 0 auto; }
 .info-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #eee;
 }
 .info-label { color: var(--accent-gold); font-size: 0.9rem; font-weight: bold; }
 .info-value { text-align: right; }
@@ -140,139 +127,91 @@ main {
     min-width: 240px;
     transition: 0.3s;
 }
-.simple-btn:hover {
-    background-color: var(--accent-gold);
-    color: #fff;
-}
+.simple-btn:hover { background-color: var(--accent-gold); color: #fff; }
 
-/* クリスマスボタン（特別仕様） */
 .xmas-btn {
-    background-color: #fff;
-    color: var(--accent-red);
-    border: 1px solid var(--accent-red);
+    background-color: #fff; color: var(--accent-red); border: 1px solid var(--accent-red);
     box-shadow: 0 5px 20px rgba(168, 50, 50, 0.1);
 }
-.xmas-btn:hover {
-    background-color: var(--accent-red);
-    color: #fff;
-}
+.xmas-btn:hover { background-color: var(--accent-red); color: #fff; }
 
-.vrc-btn {
-    background-color: #fff;
-    color: #00d1cd;
-    border: 1px solid #00d1cd;
-}
-.vrc-btn:hover {
-    background-color: #e0fbfb;
-}
+.vrc-btn { background-color: #fff; color: #00d1cd; border: 1px solid #00d1cd; }
+.vrc-btn:hover { background-color: #e0fbfb; }
 
 /* =========================================
-   Cast Carousel
+   Carousel (16:9)
 ========================================= */
 .instance-block { margin-bottom: 60px; }
-
 .instance-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--bg-color);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--bg-color);
 }
 .inst-name { font-size: 1.1rem; font-family: var(--font-serif); }
-
-.il-link {
-    font-size: 0.8rem;
-    color: var(--text-sub);
-    border-bottom: 1px solid #ccc;
-}
+.il-link { font-size: 0.8rem; color: var(--text-sub); border-bottom: 1px solid #ccc; }
 .friend-notice { font-size: 0.7rem; color: #ccc; display: block; text-align: right; margin-bottom: 10px;}
 
-.carousel-wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
+.carousel-wrap { position: relative; display: flex; align-items: center; }
 .carousel-track {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding-bottom: 10px;
-    scrollbar-width: none;
+    display: flex; gap: 15px; overflow-x: auto;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    padding-bottom: 10px; scrollbar-width: none;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
-.slide-item {
-    flex: 0 0 280px;
-    scroll-snap-align: start;
-}
-@media (max-width: 600px) {
-    .slide-item { flex: 0 0 85%; }
-}
+.slide-item { flex: 0 0 280px; scroll-snap-align: start; }
+@media (max-width: 600px) { .slide-item { flex: 0 0 85%; } }
 
 .slide-item img {
     border-radius: 4px;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/9; /* ここが重要：16:9 */
     object-fit: cover;
-    filter: sepia(10%); /* ほんのり温かみを足すフィルタ */
+    filter: sepia(10%);
 }
 
 .nav-btn {
-    background: #fff;
-    border: 1px solid #eee;
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    color: var(--text-main);
-    cursor: pointer;
-    flex-shrink: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    z-index: 2;
+    background: #fff; border: 1px solid #eee; width: 40px; height: 40px;
+    border-radius: 50%; color: var(--text-main); cursor: pointer; flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 2;
 }
 
 /* =========================================
-   Cast Grid (Page)
+   Cast Grid (Page) - 16:9 Optimized
 ========================================= */
 .cast-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    /* 横長なので、スマホで小さくなりすぎないよう最小幅を少し大きめに確保 */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
 }
-.cast-card { display: block; transition: 0.3s; }
-.cast-card:hover { opacity: 0.7; }
+.cast-card {
+    display: block;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* 薄い影をつけて浮き上がらせる */
+}
+.cast-card:hover {
+    transform: translateY(-5px); /* 高級感のあるホバー浮き上がり */
+    opacity: 0.9;
+}
 .cast-card img {
     border-radius: 4px;
-    aspect-ratio: 1/1;
+    aspect-ratio: 16/9; /* ★16:9に変更★ */
     object-fit: cover;
 }
 
 /* =========================================
-   Video & Footer
+   Footer & Video
 ========================================= */
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    background: #000;
-    margin-bottom: 30px;
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    background: #000; margin-bottom: 30px;
 }
 .video-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
 
 .back-link {
-    display: inline-block;
-    margin-top: 30px;
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    border-bottom: 1px solid #ddd;
+    display: inline-block; margin-top: 30px; font-size: 0.85rem;
+    color: var(--text-sub); border-bottom: 1px solid #ddd;
 }
-
 .footer {
-    text-align: center;
-    padding: 40px 0;
-    border-top: 1px solid #eee;
-    color: var(--text-sub);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    text-align: center; padding: 40px 0; border-top: 1px solid #eee;
+    color: var(--text-sub); font-size: 0.75rem; letter-spacing: 0.1em;
 }
