@@ -1,7 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================
-    // 1. Mobile Menu
+    // 1. Custom Cursor Logic (Sparkle)
+    // =========================================
+    const cursorDot = document.getElementById('cursor-dot');
+
+    // PCのみ実行
+    if (window.matchMedia("(min-width: 769px)").matches) {
+        
+        // 最初のmousemoveでカーソルを表示させる
+        document.addEventListener('mousemove', function firstMove() {
+            if(cursorDot) cursorDot.style.display = 'block';
+            document.removeEventListener('mousemove', firstMove);
+        });
+
+        // 追従ロジック
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            if(cursorDot) {
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+            }
+
+            // キラキラ粒子を生成 (0.2の確率で生成)
+            if (Math.random() > 0.8) { 
+                createSparkle(posX, posY);
+            }
+        });
+    }
+
+    function createSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('cursor-sparkle');
+        document.body.appendChild(sparkle);
+
+        // ランダムなサイズ
+        const size = Math.random() * 5 + 2; 
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+
+        // 位置を少し散らす
+        const offsetX = (Math.random() - 0.5) * 20; 
+        const offsetY = (Math.random() - 0.5) * 20;
+        sparkle.style.left = `${x + offsetX}px`;
+        sparkle.style.top = `${y + offsetY}px`;
+
+        // アニメーション終了後に削除
+        setTimeout(() => {
+            sparkle.remove();
+        }, 800);
+    }
+
+    // =========================================
+    // 2. Mobile Menu
     // =========================================
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -21,52 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 navMenu.classList.remove('active');
             });
         });
-    }
-
-    // =========================================
-    // 2. Custom Cursor Logic (Sparkle)
-    // =========================================
-    const cursorDot = document.getElementById('cursor-dot');
-
-    if (window.matchMedia("(min-width: 769px)").matches) {
-        
-        // 中心点の追従
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            if(cursorDot) {
-                cursorDot.style.left = `${posX}px`;
-                cursorDot.style.top = `${posY}px`;
-            }
-
-            // キラキラ粒子を生成 (間引き処理: 毎回生成すると重いため、ランダム生成)
-            if (Math.random() > 0.5) { // 調整可能: 0.1(少) ～ 0.9(多)
-                createSparkle(posX, posY);
-            }
-        });
-    }
-
-    function createSparkle(x, y) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('cursor-sparkle');
-        document.body.appendChild(sparkle);
-
-        // ランダムなサイズ
-        const size = Math.random() * 4 + 2; // 2px ~ 6px
-        sparkle.style.width = `${size}px`;
-        sparkle.style.height = `${size}px`;
-
-        // 位置（少しずらす）
-        const offsetX = (Math.random() - 0.5) * 20; 
-        const offsetY = (Math.random() - 0.5) * 20;
-        sparkle.style.left = `${x + offsetX}px`;
-        sparkle.style.top = `${y + offsetY}px`;
-
-        // アニメーション終了後に削除
-        setTimeout(() => {
-            sparkle.remove();
-        }, 800);
     }
 
     // =========================================
@@ -163,19 +170,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================
-// 6. Modal Logic
+// 6. Modal Logic (Global functions)
 // =========================================
 
 function openModal(cardElement) {
     const modal = document.getElementById('cast-modal');
     
-    // カード内の隠しデータを取得
+    // データ取得
     const imgSrc = cardElement.querySelector('img').src;
     const name = cardElement.querySelector('.data-name').textContent;
     const comment = cardElement.querySelector('.data-comment').textContent;
     const twitterLink = cardElement.querySelector('.data-twitter').textContent;
 
-    // モーダルにデータをセット
+    // データセット
     document.getElementById('modal-img').src = imgSrc;
     document.getElementById('modal-name').textContent = name;
     document.getElementById('modal-comment').textContent = comment;
@@ -183,7 +190,7 @@ function openModal(cardElement) {
 
     // 表示
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal(event) {
@@ -195,5 +202,5 @@ function closeModal(event) {
 function closeModalBtn() {
     const modal = document.getElementById('cast-modal');
     modal.classList.remove('active');
-    document.body.style.overflow = ''; // スクロール解除
+    document.body.style.overflow = '';
 }

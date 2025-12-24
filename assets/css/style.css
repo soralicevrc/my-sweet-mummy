@@ -15,10 +15,16 @@
     --font-script: 'Pinyon Script', cursive;
 }
 
+/* ★重要: PCではシステムカーソルを消す */
+@media (min-width: 769px) {
+    html, body, a, button, .cast-card {
+        cursor: none !important;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
-    cursor: none; /* デフォルトカーソル非表示 */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,12 +35,11 @@ body {
     font-family: var(--font-sans);
     line-height: 1.8;
     padding-top: var(--header-height);
-    overflow-x: hidden; /* 横スクロール防止 */
+    overflow-x: hidden;
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { text-decoration: none; color: inherit; transition: 0.3s; cursor: none; }
-button { cursor: none; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 
 #particleCanvas {
@@ -51,19 +56,20 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   Custom Cursor (Sparkle Style)
+   Custom Cursor (Revised)
    ========================================= */
-/* 中心の点 */
 #cursor-dot {
     position: fixed;
     top: 0; left: 0;
-    width: 8px; height: 8px;
+    width: 12px; height: 12px; /* 少し大きく */
     background-color: var(--gold-bright);
     border-radius: 50%;
-    z-index: 9999;
+    z-index: 99999; /* 最前面 */
     pointer-events: none;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px var(--gold-bright); /* 光らせる */
+    box-shadow: 0 0 15px var(--gold-bright);
+    mix-blend-mode: difference; /* 背景と色が被っても見えるように */
+    display: none; /* JSでblockにする */
 }
 
 /* 軌跡のキラキラ粒子 */
@@ -72,25 +78,20 @@ ul { list-style: none; }
     pointer-events: none;
     background: var(--gold-bright);
     border-radius: 50%;
-    z-index: 9998;
-    animation: sparkleFade 0.8s forwards; /* ふわっと消える */
+    z-index: 99998;
+    animation: sparkleFade 0.8s forwards;
+    box-shadow: 0 0 5px var(--gold);
 }
 
 @keyframes sparkleFade {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0) translateY(10px); /* 少し落ちながら消える */
-    }
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0) translateY(20px); }
 }
 
-/* スマホではカーソル非表示 */
+/* スマホではカーソル非表示、システムカーソル有効 */
 @media (max-width: 768px) {
-    html, a, button { cursor: auto; }
-    #cursor-dot { display: none; }
+    #cursor-dot { display: none !important; }
+    html, body, a, button { cursor: auto !important; }
 }
 
 /* =========================================
@@ -262,7 +263,7 @@ ul { list-style: none; }
 }
 .btn-join:hover { background: #fff; }
 .member-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 1rem; }
-.member-item { text-align: center; cursor: none; /* カーソルを消す */ }
+.member-item { text-align: center; }
 .member-item img {
     width: 60px; height: 60px; object-fit: cover; border-radius: 50%;
     border: 2px solid #444; margin: 0 auto 0.5rem; transition: 0.3s;
@@ -272,7 +273,7 @@ ul { list-style: none; }
 .one-instance-only { text-align: center; padding: 2rem; color: #888; font-family: var(--font-serif); }
 
 /* =========================================
-   Cast Grid (通常表示)
+   Cast Grid
    ========================================= */
 .grid-gallery {
     display: grid;
@@ -285,7 +286,6 @@ ul { list-style: none; }
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
-    cursor: none; /* 指カーソルではなくカスタム */
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     position: relative;
 }
@@ -324,12 +324,18 @@ ul { list-style: none; }
     transition: opacity 0.3s, visibility 0.3s;
     padding: 1rem;
     backdrop-filter: blur(5px);
-    cursor: auto; /* モーダル内は通常カーソル（操作しやすくするため） */
+    /* モーダル内は通常カーソルを表示する（操作性のため） */
+    cursor: auto !important; 
 }
 
 .modal-overlay.active {
     opacity: 1;
     visibility: visible;
+}
+
+/* モーダルが開いているときは直下の要素も通常カーソルにする */
+.modal-overlay.active * {
+    cursor: auto !important;
 }
 
 .modal-content {
@@ -430,10 +436,7 @@ ul { list-style: none; }
     align-items: center;
     gap: 0.5rem;
     transition: 0.3s;
-    cursor: none; /* モーダル内でもカスタムカーソルを使いたい場合 */
 }
-/* モーダル内だけは操作性を考えて通常カーソルに戻す場合、以下のコメントアウトを外す */
-/* .modal-content, .close-btn, .btn-twitter-modal { cursor: pointer; } */
 
 .btn-twitter-modal:hover {
     background: var(--gold);
@@ -441,9 +444,7 @@ ul { list-style: none; }
     color: #000;
 }
 
-/* =========================================
-   Gallery Card & Caption (New)
-   ========================================= */
+/* Gallery & Footer */
 .gallery-card {
     background: var(--card-bg);
     border: 1px solid #333;
@@ -455,20 +456,9 @@ ul { list-style: none; }
     border-color: var(--gold);
     transform: translateY(-5px);
 }
-.gallery-card img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-}
-.gallery-caption {
-    padding: 1rem;
-    text-align: center;
-    color: var(--text-sub);
-    font-size: 0.9rem;
-    border-top: 1px solid #333;
-}
+.gallery-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.gallery-caption { padding: 1rem; text-align: center; color: var(--text-sub); font-size: 0.9rem; border-top: 1px solid #333; }
 
-/* Footer & Animation */
 .rule-card ul { max-width: 600px; margin: 0 auto; }
 .rule-card li { margin-bottom: 1rem; display: flex; gap: 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
 .gold-icon { color: var(--gold); }
@@ -480,7 +470,7 @@ ul { list-style: none; }
 .fade-in-up.visible { opacity: 1; transform: translateY(0); }
 @keyframes fadeIn { to { opacity: 1; } }
 
-/* Mobile */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .hamburger { display: block; }
     .nav-menu {
