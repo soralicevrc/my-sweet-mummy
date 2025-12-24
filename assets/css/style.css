@@ -18,7 +18,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
-    cursor: none; /* デフォルトカーソルを消す */
+    cursor: none; /* デフォルトカーソル非表示 */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,6 +29,7 @@ body {
     font-family: var(--font-sans);
     line-height: 1.8;
     padding-top: var(--header-height);
+    overflow-x: hidden; /* 横スクロール防止 */
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -50,38 +51,46 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   Custom Cursor
+   Custom Cursor (Sparkle Style)
    ========================================= */
-#cursor-dot,
-#cursor-outline {
+/* 中心の点 */
+#cursor-dot {
     position: fixed;
     top: 0; left: 0;
-    transform: translate(-50%, -50%);
+    width: 8px; height: 8px;
+    background-color: var(--gold-bright);
     border-radius: 50%;
     z-index: 9999;
     pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--gold-bright); /* 光らせる */
 }
 
-#cursor-dot {
-    width: 8px; height: 8px;
-    background-color: var(--gold-bright);
+/* 軌跡のキラキラ粒子 */
+.cursor-sparkle {
+    position: fixed;
+    pointer-events: none;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    z-index: 9998;
+    animation: sparkleFade 0.8s forwards; /* ふわっと消える */
 }
 
-#cursor-outline {
-    width: 40px; height: 40px;
-    border: 1px solid var(--gold);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+@keyframes sparkleFade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) translateY(10px); /* 少し落ちながら消える */
+    }
 }
 
-body.hovering #cursor-outline {
-    width: 60px; height: 60px;
-    background-color: rgba(212, 175, 55, 0.1);
-    border-color: var(--gold-bright);
-}
-
+/* スマホではカーソル非表示 */
 @media (max-width: 768px) {
     html, a, button { cursor: auto; }
-    #cursor-dot, #cursor-outline { display: none; }
+    #cursor-dot { display: none; }
 }
 
 /* =========================================
@@ -253,7 +262,7 @@ body.hovering #cursor-outline {
 }
 .btn-join:hover { background: #fff; }
 .member-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 1rem; }
-.member-item { text-align: center; }
+.member-item { text-align: center; cursor: none; /* カーソルを消す */ }
 .member-item img {
     width: 60px; height: 60px; object-fit: cover; border-radius: 50%;
     border: 2px solid #444; margin: 0 auto 0.5rem; transition: 0.3s;
@@ -263,7 +272,7 @@ body.hovering #cursor-outline {
 .one-instance-only { text-align: center; padding: 2rem; color: #888; font-family: var(--font-serif); }
 
 /* =========================================
-   Cast Grid
+   Cast Grid (通常表示)
    ========================================= */
 .grid-gallery {
     display: grid;
@@ -276,7 +285,7 @@ body.hovering #cursor-outline {
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
-    cursor: pointer;
+    cursor: none; /* 指カーソルではなくカスタム */
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     position: relative;
 }
@@ -315,6 +324,7 @@ body.hovering #cursor-outline {
     transition: opacity 0.3s, visibility 0.3s;
     padding: 1rem;
     backdrop-filter: blur(5px);
+    cursor: auto; /* モーダル内は通常カーソル（操作しやすくするため） */
 }
 
 .modal-overlay.active {
@@ -420,7 +430,10 @@ body.hovering #cursor-outline {
     align-items: center;
     gap: 0.5rem;
     transition: 0.3s;
+    cursor: none; /* モーダル内でもカスタムカーソルを使いたい場合 */
 }
+/* モーダル内だけは操作性を考えて通常カーソルに戻す場合、以下のコメントアウトを外す */
+/* .modal-content, .close-btn, .btn-twitter-modal { cursor: pointer; } */
 
 .btn-twitter-modal:hover {
     background: var(--gold);

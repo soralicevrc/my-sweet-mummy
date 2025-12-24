@@ -24,39 +24,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 2. Custom Cursor Logic (New)
+    // 2. Custom Cursor Logic (Sparkle)
     // =========================================
     const cursorDot = document.getElementById('cursor-dot');
-    const cursorOutline = document.getElementById('cursor-outline');
 
-    // スマホなどタッチデバイスでは実行しない
-    if (window.matchMedia("(min-width: 769px)").matches && cursorDot && cursorOutline) {
+    if (window.matchMedia("(min-width: 769px)").matches) {
         
+        // 中心点の追従
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
+            
+            if(cursorDot) {
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+            }
 
-            // ドットは即座に移動
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            // アウトラインは少し遅れて移動（アニメーション）
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
+            // キラキラ粒子を生成 (間引き処理: 毎回生成すると重いため、ランダム生成)
+            if (Math.random() > 0.5) { // 調整可能: 0.1(少) ～ 0.9(多)
+                createSparkle(posX, posY);
+            }
         });
+    }
 
-        // リンクホバー時のインタラクション
-        const hoverTargets = document.querySelectorAll('a, button, .cast-card, .member-item');
-        hoverTargets.forEach(target => {
-            target.addEventListener('mouseenter', () => {
-                document.body.classList.add('hovering');
-            });
-            target.addEventListener('mouseleave', () => {
-                document.body.classList.remove('hovering');
-            });
-        });
+    function createSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('cursor-sparkle');
+        document.body.appendChild(sparkle);
+
+        // ランダムなサイズ
+        const size = Math.random() * 4 + 2; // 2px ~ 6px
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+
+        // 位置（少しずらす）
+        const offsetX = (Math.random() - 0.5) * 20; 
+        const offsetY = (Math.random() - 0.5) * 20;
+        sparkle.style.left = `${x + offsetX}px`;
+        sparkle.style.top = `${y + offsetY}px`;
+
+        // アニメーション終了後に削除
+        setTimeout(() => {
+            sparkle.remove();
+        }, 800);
     }
 
     // =========================================
@@ -102,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
 
     // =========================================
-    // 5. Particle Effect
+    // 5. Particle Effect (Background)
     // =========================================
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
@@ -156,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // 6. Modal Logic
 // =========================================
 
-// モーダルを開く
 function openModal(cardElement) {
     const modal = document.getElementById('cast-modal');
     
@@ -177,14 +186,12 @@ function openModal(cardElement) {
     document.body.style.overflow = 'hidden'; // 背景スクロール禁止
 }
 
-// モーダルを閉じる (背景クリック)
 function closeModal(event) {
     if (event.target.id === 'cast-modal') {
         closeModalBtn();
     }
 }
 
-// 閉じるボタン
 function closeModalBtn() {
     const modal = document.getElementById('cast-modal');
     modal.classList.remove('active');
