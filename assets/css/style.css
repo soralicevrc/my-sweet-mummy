@@ -2,69 +2,43 @@
    Base & Reset
    ========================================= */
 :root {
-    /* 色設定：ハイコントラスト & ラグジュアリー */
-    --bg-color: #050505;       /* 漆黒の背景 */
-    --text-white: #ffffff;     /* 真っ白な文字 */
-    --text-sub: #cccccc;       /* サブテキスト */
+    --bg-color: #050505; 
+    --text-white: #ffffff;
+    --text-sub: #cccccc;
+    --gold: #D4AF37;
+    --gold-bright: #FFD700;
+    --card-bg: #1a1a1a;
+    --header-height: 70px;
     
-    /* アクセントカラー */
-    --gold: #D4AF37;           /* 標準的な金 */
-    --gold-bright: #FFD700;    /* 明るい金 */
-    
-    /* カード等の背景色 */
-    --card-bg: #1a1a1a;        /* 黒背景に乗せる濃いグレー */
-    --header-height: 70px;     /* ヘッダーの高さ */
-    
-    /* フォント設定 */
     --font-serif: 'Shippori Mincho', serif;
     --font-sans: 'Zen Kaku Gothic New', sans-serif;
-    --font-script: 'Pinyon Script', cursive; /* ロゴ用の筆記体 */
+    --font-script: 'Pinyon Script', cursive;
 }
 
 html {
-    scroll-behavior: smooth; /* リンク移動を滑らかに */
-    scroll-padding-top: var(--header-height); /* メニュー分ずらして表示 */
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-white);
     font-family: var(--font-sans);
     line-height: 1.8;
-    padding-top: var(--header-height); /* ヘッダーの裏に隠れないように */
+    padding-top: var(--header-height);
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s;
-}
-
-ul {
-    list-style: none;
-}
-
-/* 背景エフェクト（Canvas） */
 #particleCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: -1;
-    opacity: 0.5; /* 文字の邪魔にならないよう薄く */
+    opacity: 0.5;
 }
 
 .container {
@@ -77,112 +51,65 @@ ul {
    Navigation (Header)
    ========================================= */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--header-height);
-    background: rgba(5, 5, 5, 0.95); /* ほぼ不透明で視認性確保 */
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: var(--header-height);
+    background: rgba(5, 5, 5, 0.95);
     border-bottom: 1px solid #333;
     z-index: 1000;
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
 .header-inner {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 90%; max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
 }
 
 .header-logo a {
-    font-family: var(--font-script); /* ロゴは筆記体 */
+    font-family: var(--font-script);
     color: var(--gold);
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-/* PC Menu */
-.nav-menu ul {
-    display: flex;
-    gap: 2rem;
-}
+.nav-menu ul { display: flex; gap: 2rem; }
+.nav-link { font-size: 0.9rem; font-weight: 500; color: var(--text-white); position: relative; }
+.nav-link:hover { color: var(--gold); }
 
-.nav-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-white);
-    position: relative;
-}
-
-.nav-link:hover {
-    color: var(--gold);
-}
-
-/* Hamburger Button (Mobile Only) */
 .hamburger {
-    display: none; /* PCでは非表示 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 30px;
-    height: 20px;
-    position: relative;
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 30px; height: 20px; position: relative;
 }
-
 .hamburger span {
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: var(--gold);
-    border-radius: 2px;
-    transition: 0.3s;
+    display: block; position: absolute;
+    height: 2px; width: 100%; background: var(--gold);
+    border-radius: 2px; transition: 0.3s;
 }
-
 .hamburger span:nth-child(1) { top: 0; }
 .hamburger span:nth-child(2) { top: 9px; }
 .hamburger span:nth-child(3) { bottom: 0; }
 
 /* =========================================
-   Hero Section (ロゴ修正箇所)
+   Hero Section
    ========================================= */
 .hero {
     min-height: calc(100vh - var(--header-height));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 3rem 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 3rem 0;
 }
 
-/* ▼▼ メタリックな金色のロゴ ▼▼ */
 .hero-text-logo {
     font-family: var(--font-script);
-    font-size: clamp(3.5rem, 10vw, 6rem); /* スマホで小さく、PCで大きく */
+    font-size: clamp(3.5rem, 10vw, 6rem);
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: 1rem;
-    
-    /* グラデーションで金属の質感を表現 */
-    background: linear-gradient(
-        45deg,
-        #BF953F, 
-        #FCF6BA, 
-        #B38728, 
-        #FBF5B7, 
-        #AA771C
-    );
-    -webkit-background-clip: text; /* 背景を文字で切り抜く */
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    -webkit-background-clip: text;
     background-clip: text;
-    color: transparent; /* 文字色を消して背景を見せる */
+    color: transparent;
     -webkit-text-fill-color: transparent;
-    
-    /* 発光表現 */
     filter: drop-shadow(0 0 5px rgba(252, 246, 186, 0.4));
 }
 
@@ -196,28 +123,15 @@ ul {
 }
 
 .scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
+    display: flex; flex-direction: column; align-items: center;
+    font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold);
 }
-
-.line {
-    width: 1px;
-    height: 50px;
-    background: var(--gold);
-    margin-top: 10px;
-}
+.line { width: 1px; height: 50px; background: var(--gold); margin-top: 10px; }
 
 /* =========================================
    Common Components & Cards
    ========================================= */
-.section {
-    padding: 80px 0;
-    border-bottom: 1px solid #111;
-}
+.section { padding: 80px 0; border-bottom: 1px solid #111; }
 
 .section-title {
     font-family: var(--font-serif);
@@ -227,7 +141,6 @@ ul {
     margin-bottom: 3rem;
 }
 
-/* カード共通スタイル */
 .card {
     background: var(--card-bg);
     border: 1px solid #333;
@@ -235,155 +148,89 @@ ul {
     padding: 2.5rem;
     margin-bottom: 2rem;
 }
-
 .text-center { text-align: center; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-/* Grid System */
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* Information */
 .icon-gold { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
 .info-day { font-size: 1.2rem; margin-top: 1rem; }
-.info-time {
-    font-size: 2.5rem;
-    font-family: var(--font-serif);
-    color: var(--gold-bright);
-    line-height: 1.2;
-    margin: 0.5rem 0;
-}
+.info-time { font-size: 2.5rem; font-family: var(--font-serif); color: var(--gold-bright); line-height: 1.2; margin: 0.5rem 0; }
 .gold-text { color: var(--gold-bright); font-weight: bold; }
-.badge-count {
-    background: #333;
-    padding: 5px 15px;
-    border-radius: 4px;
-    display: inline-block;
-    font-family: monospace;
-}
+.badge-count { background: #333; padding: 5px 15px; border-radius: 4px; display: inline-block; font-family: monospace; }
 
-/* Join Steps */
-.step-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
+.step-container { display: flex; flex-direction: column; gap: 1.5rem; }
 .step-card {
     background: var(--card-bg);
-    border: 1px solid #333;
-    border-left: 4px solid #444;
-    padding: 1.5rem;
-    border-radius: 4px;
+    border: 1px solid #333; border-left: 4px solid #444;
+    padding: 1.5rem; border-radius: 4px;
 }
-
-/* 重要なStep2を強調 */
 .step-card.active-step {
-    border-color: var(--gold);
-    border-left: 4px solid var(--gold);
+    border-color: var(--gold); border-left: 4px solid var(--gold);
     background: linear-gradient(90deg, rgba(212,175,55,0.05), transparent);
 }
-
-.step-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.8rem;
-}
-
-.step-num {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--gold);
-    font-weight: bold;
-}
-
+.step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
+.step-num { font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold); font-weight: bold; }
 .step-header h3 { font-size: 1.1rem; color: var(--text-white); }
+.time-highlight { background: var(--gold); color: #000; display: inline-block; padding: 2px 10px; font-weight: bold; margin-bottom: 0.5rem; }
 
-.time-highlight {
-    background: var(--gold);
-    color: #000;
-    display: inline-block;
-    padding: 2px 10px;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-/* CTA Button */
 .cta-area { text-align: center; margin-top: 3rem; }
-
 .btn-gold {
-    background: var(--gold);
-    color: #000;
-    padding: 1rem 3rem;
-    border-radius: 50px;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    background: var(--gold); color: #000;
+    padding: 1rem 3rem; border-radius: 50px; font-weight: bold;
+    display: inline-flex; align-items: center; gap: 0.5rem;
     box-shadow: 0 4px 15px rgba(212,175,55,0.3);
 }
+.btn-gold:hover { transform: translateY(-3px); background: #fff; }
 
-.btn-gold:hover {
-    transform: translateY(-3px);
-    background: #fff;
-}
-
-/* Cast Grid (画像崩れ防止・16:9固定) */
+/* Cast Grid (調整済み) */
 .grid-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
+/* リンク機能を持ったカードスタイル */
 .cast-card {
+    display: block; /* リンクとしてブロック化 */
     background: var(--card-bg);
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
 }
 
-.img-box {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* 比率固定 */
+.cast-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
 }
 
-.img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* はみ出し防止トリミング */
-}
+.img-box { width: 100%; aspect-ratio: 16 / 9; }
+.img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.cast-card:hover .img-box img { transform: scale(1.05); }
 
 .text-box {
     padding: 1.5rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.text-box h3 { color: var(--gold); margin-bottom: 0.5rem; }
+.text-box h3 { color: var(--text-white); font-size: 1rem; margin: 0; transition: color 0.3s; }
+.cast-card:hover .text-box h3 { color: var(--gold); }
+
+.gold-icon-sm { color: var(--gold); font-size: 1.2rem; }
 
 /* Rules */
 .rule-card ul { max-width: 600px; margin: 0 auto; }
-.rule-card li {
-    margin-bottom: 1rem;
-    display: flex;
-    gap: 1rem;
-    border-bottom: 1px solid #222;
-    padding-bottom: 0.5rem;
-}
-
+.rule-card li { margin-bottom: 1rem; display: flex; gap: 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
 .gold-icon { color: var(--gold); }
 .red-icon { color: #ff5555; }
 .pink-icon { color: #ff88aa; }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 3rem 0;
-    color: #666;
-    font-size: 0.8rem;
-}
+.footer { text-align: center; padding: 3rem 0; color: #666; font-size: 0.8rem; }
 
 /* Animations */
 .fade-in { opacity: 0; animation: fadeIn 1.5s forwards; }
@@ -391,37 +238,19 @@ ul {
 .fade-in-up.visible { opacity: 1; transform: translateY(0); }
 @keyframes fadeIn { to { opacity: 1; } }
 
-/* =========================================
-   Mobile Navigation Logic
-   ========================================= */
+/* Mobile */
 @media (max-width: 768px) {
     .hamburger { display: block; }
-
     .nav-menu {
-        position: fixed;
-        top: var(--header-height);
-        right: -100%; /* 初期位置は画面外 */
-        width: 100%;
-        height: calc(100vh - var(--header-height));
+        position: fixed; top: var(--header-height); right: -100%;
+        width: 100%; height: calc(100vh - var(--header-height));
         background: rgba(5,5,5,0.98);
-        transition: 0.4s ease-in-out;
-        padding: 2rem;
-        border-top: 1px solid #333;
+        transition: 0.4s ease-in-out; padding: 2rem; border-top: 1px solid #333;
     }
-
-    .nav-menu.active {
-        right: 0; /* 画面内へスライド */
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-    
+    .nav-menu.active { right: 0; }
+    .nav-menu ul { flex-direction: column; align-items: center; gap: 2rem; }
     .nav-link { font-size: 1.2rem; }
-
-    /* ハンバーガーアニメーション */
+    
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
