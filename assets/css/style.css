@@ -12,6 +12,8 @@
     
     --font-serif: 'Shippori Mincho', serif;
     --font-sans: 'Zen Kaku Gothic New', sans-serif;
+    /* ▼ 新規追加: 筆記体フォント */
+    --font-script: 'Pinyon Script', cursive;
 }
 
 html {
@@ -48,7 +50,7 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   Navigation (Header) - 操作性の中枢
+   Navigation (Header)
    ========================================= */
 .header {
     position: fixed;
@@ -73,11 +75,10 @@ ul { list-style: none; }
 }
 
 .header-logo a {
-    font-family: var(--font-serif);
+    font-family: var(--font-script); /* ここも筆記体に */
     color: var(--gold);
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 /* PC Menu */
@@ -122,15 +123,24 @@ ul { list-style: none; }
     padding: 3rem 0;
 }
 
-.logo-box { max-width: 350px; margin: 0 auto 2rem; }
-.hero-logo { width: 100%; }
+/* ▼ ロゴスタイル変更 */
+.hero-text-logo {
+    font-family: var(--font-script);
+    color: var(--gold);
+    font-size: clamp(3.5rem, 10vw, 6rem); /* スマホで小さく、PCで大きく */
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* 金色の発光 */
+}
 
 .catchcopy {
     font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    line-height: 1.6;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    line-height: 1.8;
     margin-bottom: 3rem;
     text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    opacity: 0.9;
 }
 
 .scroll-indicator {
