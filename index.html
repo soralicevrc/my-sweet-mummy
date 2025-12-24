@@ -155,238 +155,192 @@
                 <div class="container">
                     <h2 class="section-title">Mummies</h2>
                     <p class="text-center" style="margin-bottom: 2rem; color: #999;">
-                        画像をクリックすると詳細が表示されます
+                        画像をクリックすると拡大紹介が表示されます
                     </p>
                     
                     <div class="grid-gallery">
-                        <div class="cast-card" id="mama-1" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-1" onclick="openModal(this)">
                             <img src="assets/images/mama_1.png" alt="あかねママ">
-                            <div class="cast-overlay">
-                                <h3>あかねママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/shark_ar11" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">あかねママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/shark_ar11</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-2" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-2" onclick="openModal(this)">
                             <img src="assets/images/mama_2.png" alt="まゆーママ">
-                            <div class="cast-overlay">
-                                <h3>まゆーママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/mayu__VR" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">まゆーママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/mayu__VR</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-3" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-3" onclick="openModal(this)">
                             <img src="assets/images/mama_3.png" alt="酒乱ママ">
-                            <div class="cast-overlay">
-                                <h3>酒乱ママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/Syuran1862" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">酒乱ママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/Syuran1862</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-4" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-4" onclick="openModal(this)">
                             <img src="assets/images/mama_4.png" alt="ゆうなぎママ">
-                            <div class="cast-overlay">
-                                <h3>ゆうなぎママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/_nagisa_unagi_" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">ゆうなぎママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/_nagisa_unagi_</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-5" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-5" onclick="openModal(this)">
                             <img src="assets/images/mama_5.png" alt="はにママ">
-                            <div class="cast-overlay">
-                                <h3>はにママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/HANIchan0821" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">はにママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/HANIchan0821</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-6" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-6" onclick="openModal(this)">
                             <img src="assets/images/mama_6.png" alt="なちママ">
-                            <div class="cast-overlay">
-                                <h3>なちママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/nananacchicchi" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">なちママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/nananacchicchi</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-7" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-7" onclick="openModal(this)">
                             <img src="assets/images/mama_7.png" alt="ぽぽもちママ">
-                            <div class="cast-overlay">
-                                <h3>ぽぽもちママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/popo_vrc6" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">ぽぽもちママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/popo_vrc6</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-8" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-8" onclick="openModal(this)">
                             <img src="assets/images/mama_8.png" alt="フルトゥナママ">
-                            <div class="cast-overlay">
-                                <h3>フルトゥナママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/fortune08270" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">フルトゥナママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/fortune08270</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-9" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-9" onclick="openModal(this)">
                             <img src="assets/images/mama_9.png" alt="ひのとママ">
-                            <div class="cast-overlay">
-                                <h3>ひのとママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/AmanomeHinoto" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">ひのとママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/AmanomeHinoto</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-10" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-10" onclick="openModal(this)">
                             <img src="assets/images/mama_10.png" alt="ちょびママ">
-                            <div class="cast-overlay">
-                                <h3>ちょびママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/tyobibi125" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">ちょびママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/tyobibi125</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-11" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-11" onclick="openModal(this)">
                             <img src="assets/images/mama_11.png" alt="咲ママ">
-                            <div class="cast-overlay">
-                                <h3>咲ママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/AIuelle_eru" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">咲ママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/AIuelle_eru</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-12" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-12" onclick="openModal(this)">
                             <img src="assets/images/mama_12.png" alt="せさみママ">
-                            <div class="cast-overlay">
-                                <h3>せさみママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/sesame_vrc" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">せさみママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/sesame_vrc</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-13" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-13" onclick="openModal(this)">
                             <img src="assets/images/mama_13.png" alt="羽澄はしゅママ">
-                            <div class="cast-overlay">
-                                <h3>羽澄はしゅママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/ika_oi_sea" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">羽澄はしゅママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/ika_oi_sea</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-14" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-14" onclick="openModal(this)">
                             <img src="assets/images/mama_14.png" alt="あやっぺママ">
-                            <div class="cast-overlay">
-                                <h3>あやっぺママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/_ayappe_vrc" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">あやっぺママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/_ayappe_vrc</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-15" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-15" onclick="openModal(this)">
                             <img src="assets/images/mama_15.png" alt="ちゃんとみママ">
-                            <div class="cast-overlay">
-                                <h3>ちゃんとみママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/Chantomi_VRC" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">ちゃんとみママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/Chantomi_VRC</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-16" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-16" onclick="openModal(this)">
                             <img src="assets/images/mama_16.png" alt="napunanaママ">
-                            <div class="cast-overlay">
-                                <h3>napunanaママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/napu_nana" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">napunanaママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/napu_nana</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-17" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-17" onclick="openModal(this)">
                             <img src="assets/images/mama_17.png" alt="MOCAママ">
-                            <div class="cast-overlay">
-                                <h3>MOCAママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/MOCAmoca_VRCsub" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">MOCAママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/MOCAmoca_VRCsub</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-18" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-18" onclick="openModal(this)">
                             <img src="assets/images/mama_18.png" alt="みおりママ">
-                            <div class="cast-overlay">
-                                <h3>みおりママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/mio__miori" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">みおりママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/mio__miori</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-19" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-19" onclick="openModal(this)">
                             <img src="assets/images/mama_19.png" alt="めめママ">
-                            <div class="cast-overlay">
-                                <h3>めめママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/hotarumeme" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">めめママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/hotarumeme</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-20" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-20" onclick="openModal(this)">
                             <img src="assets/images/mama_20.png" alt="みかんママ">
-                            <div class="cast-overlay">
-                                <h3>みかんママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/mikan__vrc" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">みかんママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/mikan__vrc</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-21" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-21" onclick="openModal(this)">
                             <img src="assets/images/mama_21.png" alt="こいちゃママ">
-                            <div class="cast-overlay">
-                                <h3>こいちゃママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/k0ity4" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">こいちゃママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/k0ity4</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-22" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-22" onclick="openModal(this)">
                             <img src="assets/images/mama_22.png" alt="だいすママ">
-                            <div class="cast-overlay">
-                                <h3>だいすママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/comyui_211vt" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">だいすママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/comyui_211vt</div>
                             </div>
                         </div>
-                        <div class="cast-card" id="mama-23" onclick="toggleCast(this)">
+                        <div class="cast-card" id="mama-23" onclick="openModal(this)">
                             <img src="assets/images/mama_23.png" alt="スズメママ">
-                            <div class="cast-overlay">
-                                <h3>スズメママ</h3>
-                                <p class="cast-comment">（ここに一言が入ります）</p>
-                                <a href="https://twitter.com/vrc_ginsuzume" target="_blank" rel="noopener" class="btn-twitter">
-                                    <i class="fa-brands fa-x-twitter"></i> Twitter
-                                </a>
+                            <div class="cast-data" style="display:none;">
+                                <div class="data-name">スズメママ</div>
+                                <div class="data-comment">（ここに一言が入ります）</div>
+                                <div class="data-twitter">https://twitter.com/vrc_ginsuzume</div>
                             </div>
                         </div>
                     </div>
@@ -422,6 +376,24 @@
         <footer class="footer">
             <p>&copy; 2025 My Sweet Mummy.</p>
         </footer>
+    </div>
+
+    <div id="cast-modal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalBtn()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img-box">
+                    <img id="modal-img" src="" alt="Cast Image">
+                </div>
+                <div class="modal-info">
+                    <h3 id="modal-name">Name</h3>
+                    <p id="modal-comment">Comment</p>
+                    <a id="modal-twitter" href="#" target="_blank" rel="noopener" class="btn-twitter-modal">
+                        <i class="fa-brands fa-x-twitter"></i> X (Twitter)
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="assets/js/main.js"></script>

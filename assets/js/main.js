@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // (既存のコードはそのまま維持)
+    // ... Mobile Menu, Scroll Detection, Countdown, Particle Effect ...
+
     // Mobile Menu
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -64,14 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if(canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
-
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resize);
         resize();
-
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
@@ -96,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.fill();
             }
         }
-
         function init() {
             particles = [];
             for (let i = 0; i < 40; i++) particles.push(new Particle());
@@ -112,17 +112,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================
-   Cast Card Toggle Function (Global)
+   Modal Logic (New)
    ========================================= */
-function toggleCast(element) {
-    // 既に開いている他のカードを閉じる (排他制御)
-    const allCards = document.querySelectorAll('.cast-card');
-    allCards.forEach(card => {
-        if (card !== element) {
-            card.classList.remove('active');
-        }
-    });
 
-    // クリックされたカードの開閉を切り替え
-    element.classList.toggle('active');
+// モーダルを開く
+function openModal(cardElement) {
+    const modal = document.getElementById('cast-modal');
+    
+    // カード内の隠しデータを取得
+    const imgSrc = cardElement.querySelector('img').src;
+    const name = cardElement.querySelector('.data-name').textContent;
+    const comment = cardElement.querySelector('.data-comment').textContent;
+    const twitterLink = cardElement.querySelector('.data-twitter').textContent;
+
+    // モーダルにデータをセット
+    document.getElementById('modal-img').src = imgSrc;
+    document.getElementById('modal-name').textContent = name;
+    document.getElementById('modal-comment').textContent = comment;
+    document.getElementById('modal-twitter').href = twitterLink;
+
+    // 表示
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+}
+
+// モーダルを閉じる (背景クリック)
+function closeModal(event) {
+    if (event.target.id === 'cast-modal') {
+        closeModalBtn();
+    }
+}
+
+// 閉じるボタン
+function closeModalBtn() {
+    const modal = document.getElementById('cast-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // スクロール解除
 }
