@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // スクロール検知
+    /* =========================================
+       1. Mobile Menu Logic (操作性向上)
+       ========================================= */
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // ハンバーガーボタンクリック時
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // メニュー内のリンクをクリックしたら閉じる
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    /* =========================================
+       2. Scroll Detection (表示アニメーション)
+       ========================================= */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -13,11 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // カウントダウン
+    /* =========================================
+       3. Countdown Timer (情報更新)
+       ========================================= */
     function updateCountdown() {
         const now = new Date();
         const nextTuesday = new Date();
         
+        // 次の火曜日を計算
         nextTuesday.setDate(now.getDate() + (2 + 7 - now.getDay()) % 7);
         nextTuesday.setHours(22, 0, 0, 0);
 
@@ -38,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 60000);
     updateCountdown();
 
-    // パーティクル（明るさ調整）
+    /* =========================================
+       4. Particle Effect (雰囲気作り)
+       ========================================= */
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -57,8 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.size = Math.random() * 2 + 0.5;
             this.speedX = Math.random() * 0.5 - 0.25;
             this.speedY = Math.random() * 0.5 - 0.25;
-            // 少し明るめのゴールド
-            this.color = `rgba(255, 215, 0, ${Math.random() * 0.5 + 0.2})`; 
+            this.color = `rgba(212, 175, 55, ${Math.random() * 0.4 + 0.1})`; 
         }
         update() {
             this.x += this.speedX;
@@ -78,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function init() {
         particles = [];
-        for (let i = 0; i < 50; i++) particles.push(new Particle());
+        for (let i = 0; i < 40; i++) particles.push(new Particle());
     }
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
