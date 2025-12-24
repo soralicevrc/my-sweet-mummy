@@ -32,7 +32,7 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { text-decoration: none; color: inherit; transition: 0.3s; cursor: none; /* リンク上も消す */ }
+a { text-decoration: none; color: inherit; transition: 0.3s; cursor: none; }
 button { cursor: none; }
 ul { list-style: none; }
 
@@ -50,7 +50,7 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   Custom Cursor (New)
+   Custom Cursor
    ========================================= */
 #cursor-dot,
 #cursor-outline {
@@ -59,7 +59,7 @@ ul { list-style: none; }
     transform: translate(-50%, -50%);
     border-radius: 50%;
     z-index: 9999;
-    pointer-events: none; /* クリックを邪魔しない */
+    pointer-events: none;
 }
 
 #cursor-dot {
@@ -73,14 +73,12 @@ ul { list-style: none; }
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
-/* リンクホバー時のスタイル */
 body.hovering #cursor-outline {
     width: 60px; height: 60px;
     background-color: rgba(212, 175, 55, 0.1);
     border-color: var(--gold-bright);
 }
 
-/* スマホではカスタムカーソルを無効化 */
 @media (max-width: 768px) {
     html, a, button { cursor: auto; }
     #cursor-dot, #cursor-outline { display: none; }
@@ -265,7 +263,7 @@ body.hovering #cursor-outline {
 .one-instance-only { text-align: center; padding: 2rem; color: #888; font-family: var(--font-serif); }
 
 /* =========================================
-   Cast Grid (通常表示)
+   Cast Grid
    ========================================= */
 .grid-gallery {
     display: grid;
@@ -301,7 +299,7 @@ body.hovering #cursor-outline {
 }
 
 /* =========================================
-   Modal Window (拡大表示用)
+   Modal Window
    ========================================= */
 .modal-overlay {
     position: fixed;
@@ -428,6 +426,33 @@ body.hovering #cursor-outline {
     background: var(--gold);
     border-color: var(--gold);
     color: #000;
+}
+
+/* =========================================
+   Gallery Card & Caption (New)
+   ========================================= */
+.gallery-card {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.gallery-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+.gallery-card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.gallery-caption {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
 }
 
 /* Footer & Animation */
