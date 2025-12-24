@@ -1,210 +1,166 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6VBR31XP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-3D6VBR31XP');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY SWEET MUMMY - ママに甘えられる癒やしイベント</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Sweet Mummy | VRChat Event</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-inner">
-            <h1 class="site-title">MY<br>SWEET<br>MUMMY</h1>
-            <p class="sub-title">個室でママに甘えられる癒しイベント</p>
-        </div>
-    </header>
+    <canvas id="particleCanvas"></canvas>
 
-    <main>
-        <section class="section">
-            <div class="message-box">
-                <p class="main-copy">
-                    今夜だけでも<br>
-                    ママに甘えてみませんか？<span class="heart">❤︎</span>
-                </p>
-                <p class="desc-text">
-                    毎日がんばるあなたへ。<br>
-                    優しいママたちが、<br>
-                    すべてを受け入れて癒やします。
-                </p>
-            </div>
-        </section>
-
-        <section class="section" style="margin-top: -20px;">
-            <div style="text-align: center;">
-                <a href="christmas.html" class="cute-btn xmas-btn">
-                    🎄 クリスマスプレゼントを受け取る 🎄
-                </a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Information</h2>
-            <div class="info-card">
-                <div class="info-row">
-                    <span class="label">開催日時</span>
-                    <span class="value">毎週 火曜日<br>22:00 - 23:00</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">環境</span>
-                    <span class="value">PCVR限定</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">参加方法</span>
-                    <span class="value" style="font-size: 0.8rem; text-align: left; line-height: 1.6; display: inline-block;">
-                        ・引用RPキャンペーンへの参加<br>
-                        ・希望するインスタンスのILにフレンド申請後、<br>
-                        　営業日当日21:55～21:58までにリクイン1回送信！<br>
-                        <span style="font-size: 0.75rem; opacity: 0.8; margin-left: 1em;">※22:00までに招待を送信します</span>
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Members</h2>
-            <p class="desc-text" style="margin-bottom: 20px;">
-                今回の出勤ママ一覧
-            </p>
-
-            <div class="instance-box">
-                <h3 class="instance-title">Instance 1</h3>
-                
-                <div class="il-area">
-                    <p class="il-label">Join先 (IL)</p>
-                    <p style="font-size: 0.75rem; color: #e67e96; margin-bottom: 6px;">
-                        ※名前をタップしてフレンド申請
-                    </p>
-                    <a href="https://vrchat.com/home/user/usr_b6fdc2ee-f561-4576-884a-1f5501ad211f" target="_blank" class="il-btn">
-                        ジン__
-                    </a>
-                </div>
-
-                <div class="carousel-container">
-                    <button class="carousel-btn prev-btn" onclick="slideLeft('inst1')">◀</button>
-                    
-                    <div class="carousel-track" id="inst1">
-                        <a href="https://twitter.com/AmanomeHinoto" target="_blank" class="slide-item">
-                            <img src="./images/mama_9.png" alt="ママ9">
-                        </a>
-                        <a href="https://twitter.com/napu_nana" target="_blank" class="slide-item">
-                            <img src="./images/mama_16.png" alt="ママ16">
-                        </a>
-                        <a href="https://twitter.com/hotarumeme" target="_blank" class="slide-item">
-                            <img src="./images/mama_19.png" alt="ママ19">
-                        </a>
-                        <a href="https://twitter.com/vrc_ginsuzume" target="_blank" class="slide-item">
-                            <img src="./images/mama_23.png" alt="ママ23">
-                        </a>
-                        <a href="https://twitter.com/comyui_211vt" target="_blank" class="slide-item">
-                            <img src="./images/mama_22.png" alt="ママ22">
-                        </a>
-                        <a href="https://twitter.com/mio__miori" target="_blank" class="slide-item">
-                            <img src="./images/mama_18.png" alt="ママ18">
-                        </a>
+    <div class="wrapper">
+        <header class="hero">
+            <div class="hero-content fade-in">
+                <div class="logo-container">
+                    <img src="assets/images/logo.png" alt="My Sweet Mummy Logo" class="main-logo">
                     </div>
-
-                    <button class="carousel-btn next-btn" onclick="slideRight('inst1')">▶</button>
+                <p class="catchcopy">おかえりなさい。<br>今夜は少し、休みませんか。</p>
+                <div class="scroll-down">
+                    <span>SCROLL</span>
+                    <div class="line"></div>
                 </div>
-                <p class="scroll-hint">画像をタップでXへ</p>
             </div>
+        </header>
 
-            <div class="instance-box" style="margin-top: 40px;">
-                <h3 class="instance-title">Instance 2</h3>
-
-                <div class="il-area">
-                    <p class="il-label">Join先 (IL)</p>
-                    <p style="font-size: 0.75rem; color: #e67e96; margin-bottom: 6px;">
-                        ※名前をタップしてフレンド申請
-                    </p>
-                    <a href="https://vrchat.com/home/user/usr_d7d56207-7946-4ace-898b-fb73f60e9d45" target="_blank" class="il-btn">
-                        そらりす。__ev
-                    </a>
+        <section class="section concept fade-in-up">
+            <div class="container">
+                <h2 class="section-title">Concept</h2>
+                <p class="lead-text">
+                    毎日がんばるあなたを、<br>優しいママたちが全て受け入れます。<br>
+                    心ほどける時間をお過ごしください。
+                </p>
+                <div class="tags">
+                    <span class="tag">#個室癒やし</span>
+                    <span class="tag">#母性</span>
+                    <span class="tag">#VRChat</span>
                 </div>
+            </div>
+        </section>
 
-                <div class="carousel-container">
-                    <button class="carousel-btn prev-btn" onclick="slideLeft('inst2')">◀</button>
-                    
-                    <div class="carousel-track" id="inst2">
-                        <a href="https://twitter.com/mayu__VR" target="_blank" class="slide-item">
-                            <img src="./images/mama_2.png" alt="ママ2">
-                        </a>
-                        <a href="https://twitter.com/k0ity4" target="_blank" class="slide-item">
-                            <img src="./images/mama_21.png" alt="ママ21">
-                        </a>
-                        <a href="https://twitter.com/Syuran1862" target="_blank" class="slide-item">
-                            <img src="./images/mama_3.png" alt="ママ3">
-                        </a>
-                        <a href="https://twitter.com/tyobibi125" target="_blank" class="slide-item">
-                            <img src="./images/mama_10.png" alt="ママ10">
-                        </a>
-                        <a href="https://twitter.com/HANIchan0821" target="_blank" class="slide-item">
-                            <img src="./images/mama_5.png" alt="ママ5">
-                        </a>
+        <section class="section info fade-in-up">
+            <div class="glass-card container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fa-regular fa-clock icon"></i>
+                        <h3>Date & Time</h3>
+                        <p>毎週 <span class="accent">火曜日</span></p>
+                        <p class="time">22:00 - 23:00</p>
+                        <div id="countdown" class="countdown">
+                            Next: <span id="timer">計算中...</span>
+                        </div>
                     </div>
-
-                    <button class="carousel-btn next-btn" onclick="slideRight('inst2')">▶</button>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot icon"></i>
+                        <h3>Location</h3>
+                        <p>VRChat (PCVR Only)</p>
+                        <p class="sub">Group / Friend+ Instance</p>
+                    </div>
                 </div>
-                <p class="scroll-hint">画像をタップでXへ</p>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">All Mama</h2>
-            <p class="desc-text">
-                在籍ママ一覧はこちら
-            </p>
-            <a href="cast.html" class="cute-btn" style="background-color: #c5a059; box-shadow: 0 5px 0 #9e8045;">
-                ママ一覧を見る
-            </a>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Official X</h2>
-            <p class="desc-text">最新情報はXでチェック！</p>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="https://twitter.com/MySweetMummy" target="_blank" class="cute-btn" style="background-color: #000; color: #fff; box-shadow: 0 5px 0 #333;">
-                    <span style="margin-right:8px;">𝕏</span> 公式Xを見る
-                </a>
+        <section class="section system fade-in-up">
+            <div class="container">
+                <h2 class="section-title">How to Join</h2>
+                <div class="timeline">
+                    <div class="step">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <h3>事前抽選 / リクイン</h3>
+                            <p>公式X(Twitter)の引用RPによる事前抽選、または当日のJoin戦争(ILへのリクイン)にて受付を行います。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <h3>招待リクエスト送信</h3>
+                            <p class="time-accent">21:55 ～ 21:58</p>
+                            <p>上記時間内に、指定のスタッフへ招待リクエスト(Req)を<span class="highlight">1回だけ</span>送信してください。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <h3>入室 (Join)</h3>
+                            <p>スタッフから招待(Invite)が届きます。通知を受け取り、ワールドへお入りください。</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-primary">公式Xで最新情報をチェック <i class="fa-brands fa-twitter"></i></a>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Join Us</h2>
-            <p class="desc-text">
-                グループに参加して<br>開催情報をチェック
-            </p>
-            
-            <a href="https://vrchat.com/home/group/grp_245b88df-3e82-4f2e-b107-5de9433f4d3a" target="_blank" class="cute-btn vrc-btn">
-                VRChat Group
-            </a>
+        <section class="section cast fade-in-up">
+            <div class="container">
+                <h2 class="section-title">Mummies</h2>
+                <div class="cast-grid">
+                    <article class="cast-card">
+                        <img src="https://placehold.co/2048x1152/2a2626/D4AF37?text=Cast+01" alt="Cast Name">
+                        <div class="cast-info">
+                            <h3>Cast Name</h3>
+                            <p>ママからのひとこと</p>
+                        </div>
+                    </article>
+                    <article class="cast-card">
+                        <img src="https://placehold.co/2048x1152/2a2626/D4AF37?text=Cast+02" alt="Cast Name">
+                        <div class="cast-info">
+                            <h3>Cast Name</h3>
+                        </div>
+                    </article>
+                    <article class="cast-card">
+                        <img src="https://placehold.co/2048x1152/2a2626/D4AF37?text=Cast+03" alt="Cast Name">
+                        <div class="cast-info">
+                            <h3>Cast Name</h3>
+                        </div>
+                    </article>
+                    <article class="cast-card">
+                        <img src="https://placehold.co/2048x1152/2a2626/D4AF37?text=Cast+04" alt="Cast Name">
+                        <div class="cast-info">
+                            <h3>Cast Name</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <p>&copy; MY SWEET MUMMY</p>
-    </footer>
+        <section class="section rules fade-in-up">
+            <div class="container">
+                <h2 class="section-title">Rules</h2>
+                <div class="rules-box">
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> <strong>PCVR限定</strong> (Quest単体不可)</li>
+                        <li><i class="fa-solid fa-check"></i> アバター容量 <strong>50MB以下</strong> (Medium推奨)</li>
+                        <li><i class="fa-solid fa-check"></i> 日本語でのコミュニケーション（筆談可）</li>
+                        <li><i class="fa-solid fa-ban"></i> NSFW行為の禁止・迷惑行為の禁止</li>
+                        <li><i class="fa-regular fa-heart"></i> お客様のロールプレイは不要です。お気軽にお越しください。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        function slideRight(id) {
-            const track = document.getElementById(id);
-            track.scrollBy({ left: track.clientWidth * 0.6, behavior: 'smooth' });
-        }
-        function slideLeft(id) {
-            const track = document.getElementById(id);
-            track.scrollBy({ left: -track.clientWidth * 0.6, behavior: 'smooth' });
-        }
-    </script>
+        <section class="section gallery fade-in-up">
+            <div class="container">
+                <h2 class="section-title">Gallery</h2>
+                <div class="gallery-grid">
+                    <img src="https://placehold.co/2048x1152/333/999?text=Event+Photo+1" alt="Event Photo" loading="lazy">
+                    <img src="https://placehold.co/2048x1152/333/999?text=Event+Photo+2" alt="Event Photo" loading="lazy">
+                    <img src="https://placehold.co/2048x1152/333/999?text=Event+Photo+3" alt="Event Photo" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo">My Sweet Mummy</div>
+            <p class="copyright">&copy; 2025 My Sweet Mummy. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
