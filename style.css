@@ -110,6 +110,7 @@ h1, h2, h3 {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
+.desc-text { font-size: 0.95rem; color: var(--text-sub); }
 
 /* =========================================
    Hero Section

@@ -2,59 +2,50 @@
 <html lang="ja">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6VBR31XP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3D6VBR31XP');
+    </script>
 
-  gtag('config', 'G-3D6VBR31XP');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merry Christmas - MY SWEET MUMMY</title>
+    <title>Xmas Special | MY SWEET MUMMY</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-title { color: #a83232; font-size: 2.5rem; letter-spacing: 0.1em; margin-bottom: 10px; }
+        .gift-msg { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 30px; }
+    </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-inner">
-            <h1 class="site-title" style="font-size: 1.5rem;">Merry<br>Christmas</h1>
-        </div>
+    <header class="header fade-in">
+        <h1 class="page-title">Merry Christmas</h1>
+        <p class="sub-title">Special Gift for You</p>
     </header>
 
     <main>
-        <section class="section">
-            <div class="message-box" style="text-align: center; padding: 40px 20px;">
-                
-                <h2 style="color: #d43f3f; margin-bottom: 20px; font-size: 1.2rem;">
-                    🎁 Special Present 🎁
-                </h2>
-                
-                <p class="desc-text" style="margin-bottom: 30px;">
-                    ママからの朗読動画をプレゼント。<br>
-                    心温まるひとときをお過ごしください。
+        <section class="section fade-in">
+            <div class="card" style="border: 2px solid #a83232;">
+                <p class="gift-msg">
+                    聖なる夜に、温かい癒やしを。<br>
+                    ママたちからの朗読動画です。
                 </p>
 
-                <div class="video-wrap">
+                <div class="video-container">
                     <iframe 
-                        src="https://www.youtube.com/embed/?????" 
+                        src="https://www.youtube.com/embed/ここにYouTubeの動画IDを入れる" 
                         title="YouTube video player" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
 
-                <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">
-                    ※再生ボタンを押してご覧ください
-                </p>
-
-                <a href="index.html" class="back-link">
-                    Topページに戻る
-                </a>
-
+                <a href="index.html" class="back-link">TOPへ戻る</a>
             </div>
         </section>
     </main>
@@ -63,5 +54,11 @@
         <p>&copy; MY SWEET MUMMY</p>
     </footer>
 
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+        });
+        document.querySelectorAll('.fade-in').forEach(e => observer.observe(e));
+    </script>
 </body>
 </html>

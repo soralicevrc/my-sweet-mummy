@@ -28,6 +28,7 @@
             </div>
         </header>
 
+<<<<<<< HEAD
         <section class="section concept fade-in-up">
             <div class="container">
                 <h2 class="section-title">Concept</h2>
@@ -61,10 +62,32 @@
                         <p>VRChat (PCVR Only)</p>
                         <p class="sub">Group / Friend+ Instance</p>
                     </div>
+=======
+            <div class="instance-block">
+                <div class="instance-head">
+                    <span class="inst-name">Instance 2</span>
+                    <a href="https://vrchat.com/home/user/usr_d7d56207-7946-4ace-898b-fb73f60e9d45" target="_blank" class="il-link">
+                        IL: そらりす。__ev
+                    </a>
+                </div>
+                <span class="friend-notice">※名前をタップしてフレンド申請</span>
+
+                <div class="carousel-wrap">
+                    <button class="nav-btn" onclick="slideLeft('inst2')">‹</button>
+                    <div class="carousel-track" id="inst2">
+                        <a href="https://twitter.com/mayu__VR" target="_blank" class="slide-item"><img src="./images/mama_2.png" alt="2"></a>
+                        <a href="https://twitter.com/k0ity4" target="_blank" class="slide-item"><img src="./images/mama_21.png" alt="21"></a>
+                        <a href="https://twitter.com/Syuran1862" target="_blank" class="slide-item"><img src="./images/mama_3.png" alt="3"></a>
+                        <a href="https://twitter.com/tyobibi125" target="_blank" class="slide-item"><img src="./images/mama_10.png" alt="10"></a>
+                        <a href="https://twitter.com/HANIchan0821" target="_blank" class="slide-item"><img src="./images/mama_5.png" alt="5"></a>
+                    </div>
+                    <button class="nav-btn" onclick="slideRight('inst2')">›</button>
+>>>>>>> 3fe02f279441cefe14c7f19fea7134c8eff1a149
                 </div>
             </div>
         </section>
 
+<<<<<<< HEAD
         <section class="section system fade-in-up">
             <div class="container">
                 <h2 class="section-title">How to Join</h2>
@@ -126,9 +149,30 @@
                         </div>
                     </article>
                 </div>
+=======
+        <section class="section fade-in">
+            <h2 class="section-title"><span>ALL CAST</span>在籍ママ一覧</h2>
+            <div class="btn-wrapper">
+                <a href="cast.html" class="simple-btn">
+                    ママ一覧を見る
+                </a>
             </div>
         </section>
 
+        <section class="section fade-in">
+            <h2 class="section-title"><span>LINKS</span>リンク</h2>
+            <div class="btn-wrapper" style="display:flex; flex-direction:column; gap:20px; align-items:center;">
+                <a href="https://twitter.com/MySweetMummy" target="_blank" class="simple-btn" style="background:#000; color:#fff;">
+                    Official X (Twitter)
+                </a>
+                <a href="https://vrchat.com/home/group/grp_245b88df-3e82-4f2e-b107-5de9433f4d3a" target="_blank" class="simple-btn vrc-btn">
+                    VRChat Group
+                </a>
+>>>>>>> 3fe02f279441cefe14c7f19fea7134c8eff1a149
+            </div>
+        </section>
+
+<<<<<<< HEAD
         <section class="section rules fade-in-up">
             <div class="container">
                 <h2 class="section-title">Rules</h2>
@@ -162,5 +206,22 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+=======
+    <footer class="footer">
+        <p>&copy; 2024 MY SWEET MUMMY</p>
+    </footer>
+
+    <script>
+        // フェードイン
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(e => observer.observe(e));
+
+        // カルーセル制御
+        function slideLeft(id) { document.getElementById(id).scrollBy({left: -300, behavior: 'smooth'}); }
+        function slideRight(id) { document.getElementById(id).scrollBy({left: 300, behavior: 'smooth'}); }
+    </script>
+>>>>>>> 3fe02f279441cefe14c7f19fea7134c8eff1a149
 </body>
 </html>
