@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // (既存のコードはそのまま維持)
-    // ... Mobile Menu, Scroll Detection, Countdown, Particle Effect ...
-
     // Mobile Menu
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
