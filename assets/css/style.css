@@ -18,6 +18,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
+    cursor: none; /* デフォルトカーソルを消す */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,7 +32,8 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
+a { text-decoration: none; color: inherit; transition: 0.3s; cursor: none; /* リンク上も消す */ }
+button { cursor: none; }
 ul { list-style: none; }
 
 #particleCanvas {
@@ -45,6 +47,43 @@ ul { list-style: none; }
     width: 90%;
     max-width: 900px;
     margin: 0 auto;
+}
+
+/* =========================================
+   Custom Cursor (New)
+   ========================================= */
+#cursor-dot,
+#cursor-outline {
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none; /* クリックを邪魔しない */
+}
+
+#cursor-dot {
+    width: 8px; height: 8px;
+    background-color: var(--gold-bright);
+}
+
+#cursor-outline {
+    width: 40px; height: 40px;
+    border: 1px solid var(--gold);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* リンクホバー時のスタイル */
+body.hovering #cursor-outline {
+    width: 60px; height: 60px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: var(--gold-bright);
+}
+
+/* スマホではカスタムカーソルを無効化 */
+@media (max-width: 768px) {
+    html, a, button { cursor: auto; }
+    #cursor-dot, #cursor-outline { display: none; }
 }
 
 /* =========================================
@@ -91,7 +130,7 @@ ul { list-style: none; }
 .hamburger span:nth-child(3) { bottom: 0; }
 
 /* =========================================
-   Hero Section (Liquid Gold Effect)
+   Hero Section
    ========================================= */
 .hero {
     min-height: calc(100vh - var(--header-height));
@@ -99,7 +138,6 @@ ul { list-style: none; }
     text-align: center; padding: 3rem 0;
 }
 
-/* ▼▼ 追加エフェクト: 光沢が流れるアニメーション定義 ▼▼ */
 @keyframes shineFlow {
     0% { background-position: 0% 50%; }
     100% { background-position: 200% 50%; }
@@ -111,23 +149,13 @@ ul { list-style: none; }
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: 1rem;
-    
-    /* グラデーションを拡張して動きをつける */
-    background: linear-gradient(
-        90deg, 
-        #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C, 
-        #BF953F, #FCF6BA, #B38728 /* ループ用に色を繰り返す */
-    );
-    background-size: 200% auto; /* 背景を横に長くする */
-    
+    background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C, #BF953F, #FCF6BA, #B38728);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    
     filter: drop-shadow(0 0 5px rgba(252, 246, 186, 0.4));
-    
-    /* アニメーション適用: 5秒かけてゆっくり流れる */
     animation: shineFlow 5s linear infinite;
 }
 
@@ -147,10 +175,9 @@ ul { list-style: none; }
 .line { width: 1px; height: 50px; background: var(--gold); margin-top: 10px; }
 
 /* =========================================
-   Common Components & Cards
+   Common Components
    ========================================= */
 .section { padding: 80px 0; border-bottom: 1px solid #111; }
-
 .section-title {
     font-family: var(--font-serif);
     font-size: 2rem;
@@ -158,7 +185,6 @@ ul { list-style: none; }
     text-align: center;
     margin-bottom: 3rem;
 }
-
 .card {
     background: var(--card-bg);
     border: 1px solid #333;
@@ -168,7 +194,6 @@ ul { list-style: none; }
 }
 .text-center { text-align: center; }
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-
 .icon-gold { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
 .info-day { font-size: 1.2rem; margin-top: 1rem; }
 .info-time { font-size: 2.5rem; font-family: var(--font-serif); color: var(--gold-bright); line-height: 1.2; margin: 0.5rem 0; }
@@ -193,7 +218,6 @@ ul { list-style: none; }
 
 .cta-area { text-align: center; margin-top: 3rem; }
 
-/* ▼▼ 追加エフェクト: ボタンの脈動アニメーション ▼▼ */
 @keyframes pulseGold {
     0% { box-shadow: 0 4px 15px rgba(212,175,55,0.3); }
     50% { box-shadow: 0 4px 25px rgba(212,175,55,0.7); }
@@ -204,7 +228,6 @@ ul { list-style: none; }
     background: var(--gold); color: #000;
     padding: 1rem 3rem; border-radius: 50px; font-weight: bold;
     display: inline-flex; align-items: center; gap: 0.5rem;
-    /* アニメーション適用: 3秒ごとに優しく光る */
     animation: pulseGold 3s infinite;
     transition: transform 0.3s;
 }
@@ -228,7 +251,7 @@ ul { list-style: none; }
 .btn-join {
     background: var(--gold); color: #000; font-size: 0.8rem; font-weight: bold;
     padding: 0.3rem 0.8rem; border-radius: 4px; display: inline-flex; align-items: center; gap: 5px;
-    animation: pulseGold 3s infinite; /* Joinボタンも光らせる */
+    animation: pulseGold 3s infinite;
 }
 .btn-join:hover { background: #fff; }
 .member-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 1rem; }

@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Mobile Menu
+    // =========================================
+    // 1. Mobile Menu
+    // =========================================
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -21,7 +23,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Detection
+    // =========================================
+    // 2. Custom Cursor Logic (New)
+    // =========================================
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
+
+    // スマホなどタッチデバイスでは実行しない
+    if (window.matchMedia("(min-width: 769px)").matches && cursorDot && cursorOutline) {
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // ドットは即座に移動
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // アウトラインは少し遅れて移動（アニメーション）
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // リンクホバー時のインタラクション
+        const hoverTargets = document.querySelectorAll('a, button, .cast-card, .member-item');
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                document.body.classList.add('hovering');
+            });
+            target.addEventListener('mouseleave', () => {
+                document.body.classList.remove('hovering');
+            });
+        });
+    }
+
+    // =========================================
+    // 3. Scroll Detection
+    // =========================================
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -34,7 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Countdown Timer
+    // =========================================
+    // 4. Countdown Timer
+    // =========================================
     function updateCountdown() {
         const now = new Date();
         const nextTuesday = new Date();
@@ -59,7 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 60000);
     updateCountdown();
 
-    // Particle Effect
+    // =========================================
+    // 5. Particle Effect
+    // =========================================
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
         const ctx = canvas.getContext('2d');
@@ -108,9 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* =========================================
-   Modal Logic (New)
-   ========================================= */
+// =========================================
+// 6. Modal Logic
+// =========================================
 
 // モーダルを開く
 function openModal(cardElement) {
