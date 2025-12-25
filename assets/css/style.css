@@ -8,15 +8,14 @@
     --gold: #D4AF37;
     --gold-bright: #FFD700;
     --card-bg: #1a1a1a;
-    --header-height: 80px; /* 高級感のため高さを確保 */
+    --header-height: 80px;
     
     --font-serif: 'Shippori Mincho', serif;
     --font-sans: 'Zen Kaku Gothic New', sans-serif;
     --font-script: 'Pinyon Script', cursive;
-    --font-luxury: 'Cormorant Garamond', serif; /* メニュー用 */
+    --font-luxury: 'Cormorant Garamond', serif;
 }
 
-/* PCではシステムカーソルを消す */
 @media (min-width: 769px) {
     html, body, a, button, .cast-card, .gift-box-wrapper, #back-to-top {
         cursor: none !important;
@@ -30,32 +29,35 @@ img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; transition: 0.3s; cursor: none; }
 button { cursor: none; }
 ul { list-style: none; }
-#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.5; /* パララックスで動かすのでtransformはJSで制御 */ }
+#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.5; }
 .container { width: 90%; max-width: 900px; margin: 0 auto; }
 
 /* =========================================
-   1. Loading Screen
+   1. Loading Screen (調整済み)
    ========================================= */
 #loading-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: #000;
     z-index: 999999;
     display: flex; justify-content: center; align-items: center;
-    transition: opacity 1s ease-out, visibility 1s ease-out;
+    /* フェードアウトをよりゆっくりに (1s -> 1.5s) */
+    transition: opacity 1.5s ease-out, visibility 1.5s ease-out;
 }
 .loading-content { text-align: center; }
 .loading-logo {
     font-family: var(--font-script);
     font-size: 4rem; color: var(--gold);
     opacity: 0;
-    animation: fadeUpLogo 2s forwards;
+    /* アニメーション時間を延長 (2s -> 3.5s) */
+    animation: fadeUpLogo 3.5s forwards cubic-bezier(0.22, 1, 0.36, 1);
 }
 .loading-line {
     width: 0; height: 1px; background: var(--gold);
     margin: 1rem auto;
-    animation: extendLine 1.5s 0.5s forwards cubic-bezier(0.22, 1, 0.36, 1);
+    /* ラインの出現も遅らせる */
+    animation: extendLine 2s 1s forwards cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes fadeUpLogo { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUpLogo { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
 @keyframes extendLine { 0% { width: 0; } 100% { width: 200px; } }
 body.loaded #loading-screen { opacity: 0; visibility: hidden; pointer-events: none; }
 
@@ -102,48 +104,19 @@ body.loaded #loading-screen { opacity: 0; visibility: hidden; pointer-events: no
 @keyframes sparkleFade { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(0) translateY(20px); } }
 @media (max-width: 768px) { #cursor-dot { display: none !important; } html, body, a, button { cursor: auto !important; } }
 
-/* =========================================
-   Navigation (Header) - Luxury
-   ========================================= */
-.header {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: var(--header-height);
-    background: rgba(10, 10, 10, 0.85); /* 濃いめの磨砂ガラス */
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    z-index: 1000;
-    display: flex; align-items: center;
-    transition: background 0.3s, height 0.3s;
-}
+/* Navigation */
+.header { position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); z-index: 1000; display: flex; align-items: center; transition: background 0.3s, height 0.3s; }
 .header-inner { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .header-logo a { font-family: var(--font-script); color: var(--gold); font-size: 2rem; font-weight: 400; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); transition: 0.3s; }
 .header-logo a:hover { text-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
-
 .nav-menu ul { display: flex; gap: 3rem; align-items: center; }
-
-.nav-link {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    color: var(--text-white); position: relative; padding: 0.5rem 0;
-    text-decoration: none; transition: 0.3s ease;
-}
-.nav-link .en {
-    font-family: var(--font-luxury); font-size: 1.2rem; font-weight: 600; letter-spacing: 0.1em;
-    color: #e0e0e0; transition: color 0.3s, text-shadow 0.3s;
-}
-.nav-link .jp {
-    font-family: var(--font-sans); font-size: 0.6rem;
-    color: var(--gold); opacity: 0.7; margin-top: 2px;
-    letter-spacing: 0.05em; font-weight: 400; transition: opacity 0.3s, transform 0.3s;
-}
+.nav-link { display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--text-white); position: relative; padding: 0.5rem 0; text-decoration: none; transition: 0.3s ease; }
+.nav-link .en { font-family: var(--font-luxury); font-size: 1.2rem; font-weight: 600; letter-spacing: 0.1em; color: #e0e0e0; transition: color 0.3s, text-shadow 0.3s; }
+.nav-link .jp { font-family: var(--font-sans); font-size: 0.6rem; color: var(--gold); opacity: 0.7; margin-top: 2px; letter-spacing: 0.05em; font-weight: 400; transition: opacity 0.3s, transform 0.3s; }
 .nav-link:hover .en { color: var(--gold-bright); text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
 .nav-link:hover .jp { opacity: 1; color: #fff; transform: translateY(2px); }
-.nav-link::after {
-    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
-    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 5px var(--gold);
-}
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-bright), transparent); transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 5px var(--gold); }
 .nav-link:hover::after { width: 120%; }
-
 .hamburger { display: none; background: none; border: none; cursor: pointer; width: 30px; height: 20px; position: relative; z-index: 1001; }
 .hamburger span { display: block; position: absolute; height: 1px; width: 100%; background: var(--gold); transition: 0.3s; }
 .hamburger span:nth-child(1) { top: 0; }
@@ -269,7 +242,6 @@ body.loaded #loading-screen { opacity: 0; visibility: hidden; pointer-events: no
     }
     .nav-menu.active { right: 0; }
     .nav-menu ul { flex-direction: column; gap: 3rem; }
-    /* Mobile Link Style */
     .nav-link { font-size: 1.2rem; flex-direction: row; gap: 10px; align-items: baseline; }
     .nav-link .en { font-size: 1.8rem; }
     .nav-link .jp { font-size: 0.9rem; margin-top: 0; }

@@ -1,17 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================
-    // 0. Loading Screen
+    // 0. Loading Screen & Init
     // =========================================
+    // ローディングアニメーション(3.5s) + 余韻(1.5s) = 5000ms
     setTimeout(() => {
         document.body.classList.add('loaded');
         checkTodayCast();
-    }, 2500);
-
-    window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-        checkTodayCast();
-    });
+    }, 5000); 
 
     // =========================================
     // 1. Mobile Menu
@@ -150,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
 
     // =========================================
-    // 5. Particle Effect
+    // 5. Particle Effect (Background)
     // =========================================
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
