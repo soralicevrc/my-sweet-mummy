@@ -1,6 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // =========================================
+    // 0. Loading Screen & Init
+    // =========================================
+    // 画像などの読み込み完了を待たずに、一定時間後には強制的に開く(安全策)
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+        checkTodayCast(); // ローディング完了後にリボン判定
+    }, 2500); // 2.5秒後
+
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+        checkTodayCast();
+    });
+
+    // =========================================
     // 1. Mobile Menu
+    // =========================================
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -21,12 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Custom Cursor Logic (Sparkle)
+    // =========================================
+    // 2. Custom Cursor Logic
+    // =========================================
     const cursorDot = document.getElementById('cursor-dot');
 
     if (window.matchMedia("(min-width: 769px)").matches) {
-        
-        // 最初のmousemoveでカーソルを表示させる
         document.addEventListener('mousemove', function firstMove() {
             if(cursorDot) cursorDot.style.display = 'block';
             document.removeEventListener('mousemove', firstMove);
@@ -66,7 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800);
     }
 
-    // 3. Scroll Detection
+    // =========================================
+    // 3. Scroll Detection & Parallax & BackToTop
+    // =========================================
+    const particleCanvas = document.getElementById('particleCanvas');
+    const backToTopBtn = document.getElementById('back-to-top');
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -79,7 +100,34 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // Parallax
+        if(particleCanvas) {
+            particleCanvas.style.transform = `translateY(${scrollY * 0.2}px)`;
+        }
+
+        // Back to Top Button
+        if(backToTopBtn) {
+            if (scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
+    });
+
+    if(backToTopBtn) {
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // =========================================
     // 4. Countdown Timer
+    // =========================================
     function updateCountdown() {
         const now = new Date();
         const nextTuesday = new Date();
@@ -104,7 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 60000);
     updateCountdown();
 
+    // =========================================
     // 5. Particle Effect (Background)
+    // =========================================
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
         const ctx = canvas.getContext('2d');
@@ -153,7 +203,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 6. Modal Logic
+// =========================================
+// 6. Logic: Today's Cast & Modal & Gift
+// =========================================
+
+// Today Cast Highlight
+function checkTodayCast() {
+    // インスタンス割のメンバー名を取得
+    const instanceMembers = document.querySelectorAll('.member-list .member-item span');
+    const todayNames = [];
+    
+    instanceMembers.forEach(span => {
+        todayNames.push(span.textContent.trim());
+    });
+
+    // Cast一覧と照合
+    const castCards = document.querySelectorAll('.cast-card');
+    castCards.forEach(card => {
+        const cardName = card.querySelector('.data-name').textContent;
+        // 「あかね」が「あかねママ」に含まれているかチェック
+        const isToday = todayNames.some(name => cardName.includes(name));
+        
+        if (isToday) {
+            card.classList.add('today-cast');
+        } else {
+            card.classList.remove('today-cast');
+        }
+    });
+}
+
+// Modal Logic
 function openModal(cardElement) {
     const modal = document.getElementById('cast-modal');
     
@@ -186,16 +265,14 @@ function closeModalBtn() {
     document.body.style.overflow = '';
 }
 
-// 7. Gift Box Logic (New)
+// Gift Logic
 function openGift() {
     const giftWrapper = document.getElementById('gift-box-wrapper');
     const giftContent = document.getElementById('gift-content');
 
-    // 箱をフェードアウト
     giftWrapper.style.opacity = '0';
     giftWrapper.style.pointerEvents = 'none';
 
-    // コンテンツを表示 (少し遅らせて)
     setTimeout(() => {
         giftWrapper.style.display = 'none';
         giftContent.style.display = 'block';

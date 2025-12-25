@@ -12,6 +12,13 @@
 </head>
 <body>
 
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1 class="loading-logo">My Sweet Mummy</h1>
+            <div class="loading-line"></div>
+        </div>
+    </div>
+
     <canvas id="particleCanvas"></canvas>
 
     <header class="header" id="header">
@@ -28,48 +35,13 @@
 
             <nav class="nav-menu" id="nav-menu">
                 <ul>
-                    <li>
-                        <a href="#concept" class="nav-link">
-                            <span class="en">Concept</span>
-                            <span class="jp">コンセプト</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#info" class="nav-link">
-                            <span class="en">Info</span>
-                            <span class="jp">開催情報</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#instance" class="nav-link">
-                            <span class="en">Instance</span>
-                            <span class="jp">部屋割り</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#gift" class="nav-link">
-                            <span class="en">Gift</span>
-                            <span class="jp">贈り物</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#join" class="nav-link">
-                            <span class="en">Join</span>
-                            <span class="jp">参加方法</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#cast" class="nav-link">
-                            <span class="en">Cast</span>
-                            <span class="jp">キャスト</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#rules" class="nav-link">
-                            <span class="en">Rules</span>
-                            <span class="jp">ルール</span>
-                        </a>
-                    </li>
+                    <li><a href="#concept" class="nav-link"><span class="en">Concept</span><span class="jp">コンセプト</span></a></li>
+                    <li><a href="#info" class="nav-link"><span class="en">Info</span><span class="jp">開催情報</span></a></li>
+                    <li><a href="#instance" class="nav-link"><span class="en">Instance</span><span class="jp">部屋割り</span></a></li>
+                    <li><a href="#gift" class="nav-link"><span class="en">Gift</span><span class="jp">贈り物</span></a></li>
+                    <li><a href="#join" class="nav-link"><span class="en">Join</span><span class="jp">参加方法</span></a></li>
+                    <li><a href="#cast" class="nav-link"><span class="en">Cast</span><span class="jp">キャスト</span></a></li>
+                    <li><a href="#rules" class="nav-link"><span class="en">Rules</span><span class="jp">ルール</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -260,8 +232,9 @@
         <footer class="footer"><p>&copy; 2025 My Sweet Mummy.</p></footer>
     </div>
 
+    <a href="#" id="back-to-top" aria-label="Topへ戻る"><i class="fa-solid fa-chevron-up"></i></a>
+
     <div id="cast-modal" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="close-btn" onclick="closeModalBtn()">&times;</span><div class="modal-body"><div class="modal-img-box"><img id="modal-img" src="" alt="Cast Image"></div><div class="modal-info"><h3 id="modal-name">Name</h3><p id="modal-comment">Comment</p><a id="modal-twitter" href="#" target="_blank" rel="noopener" class="btn-twitter-modal"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a></div></div></div></div>
-    
     <div id="cursor-dot"></div>
 
     <script src="assets/js/main.js"></script>
