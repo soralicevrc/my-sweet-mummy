@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================
-    // 0. Loading Screen & Init
+    // 0. Loading Screen
     // =========================================
-    // 画像などの読み込み完了を待たずに、一定時間後には強制的に開く(安全策)
     setTimeout(() => {
         document.body.classList.add('loaded');
-        checkTodayCast(); // ローディング完了後にリボン判定
-    }, 2500); // 2.5秒後
+        checkTodayCast();
+    }, 2500);
 
     window.addEventListener('load', () => {
         document.body.classList.add('loaded');
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 2. Custom Cursor Logic
+    // 2. Custom Cursor
     // =========================================
     const cursorDot = document.getElementById('cursor-dot');
 
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 3. Scroll Detection & Parallax & BackToTop
+    // 3. Scroll Detection & Parallax
     // =========================================
     const particleCanvas = document.getElementById('particleCanvas');
     const backToTopBtn = document.getElementById('back-to-top');
@@ -103,12 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
 
-        // Parallax
         if(particleCanvas) {
             particleCanvas.style.transform = `translateY(${scrollY * 0.2}px)`;
         }
 
-        // Back to Top Button
         if(backToTopBtn) {
             if (scrollY > 300) {
                 backToTopBtn.classList.add('visible');
@@ -153,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
 
     // =========================================
-    // 5. Particle Effect (Background)
+    // 5. Particle Effect
     // =========================================
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
@@ -204,12 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================
-// 6. Logic: Today's Cast & Modal & Gift
+// 6. Global Logic (Today's Cast, Modal, Gift)
 // =========================================
 
-// Today Cast Highlight
 function checkTodayCast() {
-    // インスタンス割のメンバー名を取得
     const instanceMembers = document.querySelectorAll('.member-list .member-item span');
     const todayNames = [];
     
@@ -217,11 +212,9 @@ function checkTodayCast() {
         todayNames.push(span.textContent.trim());
     });
 
-    // Cast一覧と照合
     const castCards = document.querySelectorAll('.cast-card');
     castCards.forEach(card => {
         const cardName = card.querySelector('.data-name').textContent;
-        // 「あかね」が「あかねママ」に含まれているかチェック
         const isToday = todayNames.some(name => cardName.includes(name));
         
         if (isToday) {
@@ -232,23 +225,19 @@ function checkTodayCast() {
     });
 }
 
-// Modal Logic
 function openModal(cardElement) {
     const modal = document.getElementById('cast-modal');
     
-    // データ取得
     const imgSrc = cardElement.querySelector('img').src;
     const name = cardElement.querySelector('.data-name').textContent;
     const comment = cardElement.querySelector('.data-comment').textContent;
     const twitterLink = cardElement.querySelector('.data-twitter').textContent;
 
-    // データセット
     document.getElementById('modal-img').src = imgSrc;
     document.getElementById('modal-name').textContent = name;
     document.getElementById('modal-comment').textContent = comment;
     document.getElementById('modal-twitter').href = twitterLink;
 
-    // 表示
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -265,7 +254,6 @@ function closeModalBtn() {
     document.body.style.overflow = '';
 }
 
-// Gift Logic
 function openGift() {
     const giftWrapper = document.getElementById('gift-box-wrapper');
     const giftContent = document.getElementById('gift-content');
