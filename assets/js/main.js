@@ -1,61 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // =========================================
-    // 1. Custom Cursor Logic (Sparkle)
-    // =========================================
-    const cursorDot = document.getElementById('cursor-dot');
-
-    // PCのみ実行
-    if (window.matchMedia("(min-width: 769px)").matches) {
-        
-        // 最初のmousemoveでカーソルを表示させる
-        document.addEventListener('mousemove', function firstMove() {
-            if(cursorDot) cursorDot.style.display = 'block';
-            document.removeEventListener('mousemove', firstMove);
-        });
-
-        // 追従ロジック
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            if(cursorDot) {
-                cursorDot.style.left = `${posX}px`;
-                cursorDot.style.top = `${posY}px`;
-            }
-
-            // キラキラ粒子を生成 (0.2の確率で生成)
-            if (Math.random() > 0.8) { 
-                createSparkle(posX, posY);
-            }
-        });
-    }
-
-    function createSparkle(x, y) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('cursor-sparkle');
-        document.body.appendChild(sparkle);
-
-        // ランダムなサイズ
-        const size = Math.random() * 5 + 2; 
-        sparkle.style.width = `${size}px`;
-        sparkle.style.height = `${size}px`;
-
-        // 位置を少し散らす
-        const offsetX = (Math.random() - 0.5) * 20; 
-        const offsetY = (Math.random() - 0.5) * 20;
-        sparkle.style.left = `${x + offsetX}px`;
-        sparkle.style.top = `${y + offsetY}px`;
-
-        // アニメーション終了後に削除
-        setTimeout(() => {
-            sparkle.remove();
-        }, 800);
-    }
-
-    // =========================================
-    // 2. Mobile Menu
-    // =========================================
+    // 1. Mobile Menu
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -76,9 +21,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =========================================
+    // 2. Custom Cursor Logic (Sparkle)
+    const cursorDot = document.getElementById('cursor-dot');
+
+    if (window.matchMedia("(min-width: 769px)").matches) {
+        
+        // 最初のmousemoveでカーソルを表示させる
+        document.addEventListener('mousemove', function firstMove() {
+            if(cursorDot) cursorDot.style.display = 'block';
+            document.removeEventListener('mousemove', firstMove);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            if(cursorDot) {
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+            }
+
+            if (Math.random() > 0.8) { 
+                createSparkle(posX, posY);
+            }
+        });
+    }
+
+    function createSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('cursor-sparkle');
+        document.body.appendChild(sparkle);
+
+        const size = Math.random() * 5 + 2; 
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+
+        const offsetX = (Math.random() - 0.5) * 20; 
+        const offsetY = (Math.random() - 0.5) * 20;
+        sparkle.style.left = `${x + offsetX}px`;
+        sparkle.style.top = `${y + offsetY}px`;
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 800);
+    }
+
     // 3. Scroll Detection
-    // =========================================
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -91,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // =========================================
     // 4. Countdown Timer
-    // =========================================
     function updateCountdown() {
         const now = new Date();
         const nextTuesday = new Date();
@@ -118,9 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 60000);
     updateCountdown();
 
-    // =========================================
     // 5. Particle Effect (Background)
-    // =========================================
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
         const ctx = canvas.getContext('2d');
@@ -169,10 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// =========================================
-// 6. Modal Logic (Global functions)
-// =========================================
-
+// 6. Modal Logic
 function openModal(cardElement) {
     const modal = document.getElementById('cast-modal');
     
@@ -203,4 +184,20 @@ function closeModalBtn() {
     const modal = document.getElementById('cast-modal');
     modal.classList.remove('active');
     document.body.style.overflow = '';
+}
+
+// 7. Gift Box Logic (New)
+function openGift() {
+    const giftWrapper = document.getElementById('gift-box-wrapper');
+    const giftContent = document.getElementById('gift-content');
+
+    // 箱をフェードアウト
+    giftWrapper.style.opacity = '0';
+    giftWrapper.style.pointerEvents = 'none';
+
+    // コンテンツを表示 (少し遅らせて)
+    setTimeout(() => {
+        giftWrapper.style.display = 'none';
+        giftContent.style.display = 'block';
+    }, 500);
 }

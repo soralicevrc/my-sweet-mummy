@@ -31,6 +31,7 @@
                     <li><a href="#concept" class="nav-link">Concept</a></li>
                     <li><a href="#info" class="nav-link">Date & Place</a></li>
                     <li><a href="#instance" class="nav-link">Instance</a></li>
+                    <li><a href="#gift" class="nav-link">Gift</a></li> 
                     <li><a href="#join" class="nav-link">How to Join</a></li>
                     <li><a href="#cast" class="nav-link">Cast</a></li>
                     <li><a href="#rules" class="nav-link">Rules</a></li>
@@ -127,6 +128,30 @@
                 </div>
             </section>
 
+            <section id="gift" class="section fade-in-up">
+                <div class="container">
+                    <h2 class="section-title">Christmas Gift</h2>
+                    <div class="gift-container card text-center">
+                        
+                        <div id="gift-box-wrapper" class="gift-box-wrapper" onclick="openGift()">
+                            <p class="gift-message">ママからの贈り物...</p>
+                            <div class="gift-box">
+                                <i class="fa-solid fa-gift"></i>
+                                <div class="gift-glow"></div>
+                            </div>
+                            <p class="click-hint">Click to Open</p>
+                        </div>
+
+                        <div id="gift-content" class="gift-content" style="display: none;">
+                            <p class="gift-opened-message">Merry Christmas & Happy New Year</p>
+                            <div class="youtube-wrapper">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=dummy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
             <section id="join" class="section fade-in-up">
                 <div class="container">
                     <h2 class="section-title">How to Join</h2>
@@ -157,247 +182,52 @@
                     <p class="text-center" style="margin-bottom: 2rem; color: #999;">
                         画像をクリックすると拡大紹介が表示されます
                     </p>
-                    
                     <div class="grid-gallery">
-                        <div class="cast-card" id="mama-1" onclick="openModal(this)">
-                            <img src="assets/images/mama_1.png" alt="あかねママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">あかねママ</div>
-                                <div class="data-comment">１日お疲れ様、ママとゆっくり甘い時間過ごそうね♡</div>
-                                <div class="data-twitter">https://twitter.com/shark_ar11</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-2" onclick="openModal(this)">
-                            <img src="assets/images/mama_2.png" alt="まゆーママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">まゆーママ</div>
-                                <div class="data-comment">こっちおいで～!今日は何して遊ぼっか♪</div>
-                                <div class="data-twitter">https://twitter.com/mayu__VR</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-3" onclick="openModal(this)">
-                            <img src="assets/images/mama_3.png" alt="酒乱ママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">酒乱ママ</div>
-                                <div class="data-comment">あらぁ、おかえり。今日もいっぱい遊んで来たのねぇ。さぁ、ママにいっぱいお話聞かせて頂戴、今日はどんなことして遊んできたのかな？</div>
-                                <div class="data-twitter">https://twitter.com/Syuran1862</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-4" onclick="openModal(this)">
-                            <img src="assets/images/mama_4.png" alt="ゆうなぎママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">ゆうなぎママ</div>
-                                <div class="data-comment">おかえり。たまには甘えていいんだよ？♡</div>
-                                <div class="data-twitter">https://twitter.com/_nagisa_unagi_</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-5" onclick="openModal(this)">
-                            <img src="assets/images/mama_5.png" alt="はにママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">はにママ</div>
-                                <div class="data-comment">ママはどんなときもあなたの味方だから甘えたくなったらいつでも帰ってきていいのよ</div>
-                                <div class="data-twitter">https://twitter.com/HANIchan0821</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-6" onclick="openModal(this)">
-                            <img src="assets/images/mama_6.png" alt="なちママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">なちママ</div>
-                                <div class="data-comment">おかえりなさい、お隣においで。ママとゆっくりお話ししましょうね。</div>
-                                <div class="data-twitter">https://twitter.com/nananacchicchi</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-7" onclick="openModal(this)">
-                            <img src="assets/images/mama_7.png" alt="ぽぽもちママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">ぽぽもちママ</div>
-                                <div class="data-comment">おかえり♡今日もママと一緒に楽しい時間を過ごそうね！</div>
-                                <div class="data-twitter">https://twitter.com/popo_vrc6</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-8" onclick="openModal(this)">
-                            <img src="assets/images/mama_8.png" alt="フルトゥナママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">フルトゥナママ</div>
-                                <div class="data-comment">おいで～♡ママといっぱいぎゅ～ってしよ♡</div>
-                                <div class="data-twitter">https://twitter.com/fortune08270</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-9" onclick="openModal(this)">
-                            <img src="assets/images/mama_9.png" alt="ひのとママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">ひのとママ</div>
-                                <div class="data-comment">ママにたくさん甘えてくれるいい子はどこかな〜？</div>
-                                <div class="data-twitter">https://twitter.com/AmanomeHinoto</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-10" onclick="openModal(this)">
-                            <img src="assets/images/mama_10.png" alt="ちょびママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">ちょびママ</div>
-                                <div class="data-comment">おかえり～！今日も頑張ってえらいねえ、たくさん甘えていいんだよ～</div>
-                                <div class="data-twitter">https://twitter.com/tyobibi125</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-11" onclick="openModal(this)">
-                            <img src="assets/images/mama_11.png" alt="咲ママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">咲ママ</div>
-                                <div class="data-comment">おかえりなさい。今日はどんな一日だったの？よかったらママに聞かせてほしいな？</div>
-                                <div class="data-twitter">https://twitter.com/AIuelle_eru</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-12" onclick="openModal(this)">
-                            <img src="assets/images/mama_12.png" alt="せさみママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">せさみママ</div>
-                                <div class="data-comment">おかえりなさい。今日もよく頑張ったね～。ママにいっぱい甘えていいからね</div>
-                                <div class="data-twitter">https://twitter.com/sesame_vrc</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-13" onclick="openModal(this)">
-                            <img src="assets/images/mama_13.png" alt="羽澄はしゅママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">羽澄はしゅママ</div>
-                                <div class="data-comment">今日はどんな一日だった？ママにもお話聞かせてくれたらうれしいな～！</div>
-                                <div class="data-twitter">https://twitter.com/ika_oi_sea</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-14" onclick="openModal(this)">
-                            <img src="assets/images/mama_14.png" alt="あやっぺママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">あやっぺママ</div>
-                                <div class="data-comment">おかえりなさい、今日も一日おつかれさま。よかったらママに今日の事、たくさん聞かせて？</div>
-                                <div class="data-twitter">https://twitter.com/_ayappe_vrc</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-15" onclick="openModal(this)">
-                            <img src="assets/images/mama_15.png" alt="ちゃんとみママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">ちゃんとみママ</div>
-                                <div class="data-comment">おかえり♡ 今日もいっぱい頑張ったね。楽しかったこと、いっぱい聞かせて？</div>
-                                <div class="data-twitter">https://twitter.com/Chantomi_VRC</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-16" onclick="openModal(this)">
-                            <img src="assets/images/mama_16.png" alt="napunanaママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">napunanaママ</div>
-                                <div class="data-comment">おかえりなさい…♡明日のことは一旦忘れて、私に癒やされましょうね♪</div>
-                                <div class="data-twitter">https://twitter.com/napu_nana</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-17" onclick="openModal(this)">
-                            <img src="assets/images/mama_17.png" alt="MOCAママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">MOCAママ</div>
-                                <div class="data-comment">おかえりなさい！今日もママとたくさんおしゃべりしよ♡</div>
-                                <div class="data-twitter">https://twitter.com/MOCAmoca_VRCsub</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-18" onclick="openModal(this)">
-                            <img src="assets/images/mama_18.png" alt="みおりママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">みおりママ</div>
-                                <div class="data-comment">おかえり…♡今日も一日頑張ってえらいね。ママがぜぇんぶ褒めてあげようね……♡</div>
-                                <div class="data-twitter">https://twitter.com/mio__miori</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-19" onclick="openModal(this)">
-                            <img src="assets/images/mama_19.png" alt="めめママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">めめママ</div>
-                                <div class="data-comment">ママのお膝は君のものだよ♡今日もたくさんお話聞かせてね♡</div>
-                                <div class="data-twitter">https://twitter.com/hotarumeme</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-20" onclick="openModal(this)">
-                            <img src="assets/images/mama_20.png" alt="みかんママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">みかんママ</div>
-                                <div class="data-comment">おかえり！今日も頑張ってとってもえら～い♡ママにいっぱいいい子いい子させてね♡</div>
-                                <div class="data-twitter">https://twitter.com/mikan__vrc</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-21" onclick="openModal(this)">
-                            <img src="assets/images/mama_21.png" alt="こいちゃママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">こいちゃママ</div>
-                                <div class="data-comment">おかえりなさい、いつもおつかれさま。今日はママに甘えにきていいんだよ！</div>
-                                <div class="data-twitter">https://twitter.com/k0ity4</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-22" onclick="openModal(this)">
-                            <img src="assets/images/mama_22.png" alt="だいすママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">だいすママ</div>
-                                <div class="data-comment">おかえり！今日あったこと、ママに全部話してよ♥</div>
-                                <div class="data-twitter">https://twitter.com/comyui_211vt</div>
-                            </div>
-                        </div>
-                        <div class="cast-card" id="mama-23" onclick="openModal(this)">
-                            <img src="assets/images/mama_23.png" alt="スズメママ">
-                            <div class="cast-data" style="display:none;">
-                                <div class="data-name">スズメママ</div>
-                                <div class="data-comment">（一言未設定）</div>
-                                <div class="data-twitter">https://twitter.com/vrc_ginsuzume</div>
-                            </div>
-                        </div>
+                        <div class="cast-card" id="mama-1" onclick="openModal(this)"><img src="assets/images/mama_1.png" alt="あかねママ"><div class="cast-data" style="display:none;"><div class="data-name">あかねママ</div><div class="data-comment">１日お疲れ様、ママとゆっくり甘い時間過ごそうね♡</div><div class="data-twitter">https://twitter.com/shark_ar11</div></div></div>
+                        <div class="cast-card" id="mama-2" onclick="openModal(this)"><img src="assets/images/mama_2.png" alt="まゆーママ"><div class="cast-data" style="display:none;"><div class="data-name">まゆーママ</div><div class="data-comment">こっちおいで～!今日は何して遊ぼっか♪</div><div class="data-twitter">https://twitter.com/mayu__VR</div></div></div>
+                        <div class="cast-card" id="mama-3" onclick="openModal(this)"><img src="assets/images/mama_3.png" alt="酒乱ママ"><div class="cast-data" style="display:none;"><div class="data-name">酒乱ママ</div><div class="data-comment">あらぁ、おかえり。今日もいっぱい遊んで来たのねぇ。さぁ、ママにいっぱいお話聞かせて頂戴、今日はどんなことして遊んできたのかな？</div><div class="data-twitter">https://twitter.com/Syuran1862</div></div></div>
+                        <div class="cast-card" id="mama-4" onclick="openModal(this)"><img src="assets/images/mama_4.png" alt="ゆうなぎママ"><div class="cast-data" style="display:none;"><div class="data-name">ゆうなぎママ</div><div class="data-comment">おかえり。たまには甘えていいんだよ？♡</div><div class="data-twitter">https://twitter.com/_nagisa_unagi_</div></div></div>
+                        <div class="cast-card" id="mama-5" onclick="openModal(this)"><img src="assets/images/mama_5.png" alt="はにママ"><div class="cast-data" style="display:none;"><div class="data-name">はにママ</div><div class="data-comment">ママはどんなときもあなたの味方だから甘えたくなったらいつでも帰ってきていいのよ</div><div class="data-twitter">https://twitter.com/HANIchan0821</div></div></div>
+                        <div class="cast-card" id="mama-6" onclick="openModal(this)"><img src="assets/images/mama_6.png" alt="なちママ"><div class="cast-data" style="display:none;"><div class="data-name">なちママ</div><div class="data-comment">おかえりなさい、お隣においで。ママとゆっくりお話ししましょうね。</div><div class="data-twitter">https://twitter.com/nananacchicchi</div></div></div>
+                        <div class="cast-card" id="mama-7" onclick="openModal(this)"><img src="assets/images/mama_7.png" alt="ぽぽもちママ"><div class="cast-data" style="display:none;"><div class="data-name">ぽぽもちママ</div><div class="data-comment">おかえり♡今日もママと一緒に楽しい時間を過ごそうね！</div><div class="data-twitter">https://twitter.com/popo_vrc6</div></div></div>
+                        <div class="cast-card" id="mama-8" onclick="openModal(this)"><img src="assets/images/mama_8.png" alt="フルトゥナママ"><div class="cast-data" style="display:none;"><div class="data-name">フルトゥナママ</div><div class="data-comment">おいで～♡ママといっぱいぎゅ～ってしよ♡</div><div class="data-twitter">https://twitter.com/fortune08270</div></div></div>
+                        <div class="cast-card" id="mama-9" onclick="openModal(this)"><img src="assets/images/mama_9.png" alt="ひのとママ"><div class="cast-data" style="display:none;"><div class="data-name">ひのとママ</div><div class="data-comment">ママにたくさん甘えてくれるいい子はどこかな〜？</div><div class="data-twitter">https://twitter.com/AmanomeHinoto</div></div></div>
+                        <div class="cast-card" id="mama-10" onclick="openModal(this)"><img src="assets/images/mama_10.png" alt="ちょびママ"><div class="cast-data" style="display:none;"><div class="data-name">ちょびママ</div><div class="data-comment">おかえり～！今日も頑張ってえらいねえ、たくさん甘えていいんだよ～</div><div class="data-twitter">https://twitter.com/tyobibi125</div></div></div>
+                        <div class="cast-card" id="mama-11" onclick="openModal(this)"><img src="assets/images/mama_11.png" alt="咲ママ"><div class="cast-data" style="display:none;"><div class="data-name">咲ママ</div><div class="data-comment">おかえりなさい。今日はどんな一日だったの？よかったらママに聞かせてほしいな？</div><div class="data-twitter">https://twitter.com/AIuelle_eru</div></div></div>
+                        <div class="cast-card" id="mama-12" onclick="openModal(this)"><img src="assets/images/mama_12.png" alt="せさみママ"><div class="cast-data" style="display:none;"><div class="data-name">せさみママ</div><div class="data-comment">おかえりなさい。今日もよく頑張ったね～。ママにいっぱい甘えていいからね</div><div class="data-twitter">https://twitter.com/sesame_vrc</div></div></div>
+                        <div class="cast-card" id="mama-13" onclick="openModal(this)"><img src="assets/images/mama_13.png" alt="羽澄はしゅママ"><div class="cast-data" style="display:none;"><div class="data-name">羽澄はしゅママ</div><div class="data-comment">今日はどんな一日だった？ママにもお話聞かせてくれたらうれしいな～！</div><div class="data-twitter">https://twitter.com/ika_oi_sea</div></div></div>
+                        <div class="cast-card" id="mama-14" onclick="openModal(this)"><img src="assets/images/mama_14.png" alt="あやっぺママ"><div class="cast-data" style="display:none;"><div class="data-name">あやっぺママ</div><div class="data-comment">おかえりなさい、今日も一日おつかれさま。よかったらママに今日の事、たくさん聞かせて？</div><div class="data-twitter">https://twitter.com/_ayappe_vrc</div></div></div>
+                        <div class="cast-card" id="mama-15" onclick="openModal(this)"><img src="assets/images/mama_15.png" alt="ちゃんとみママ"><div class="cast-data" style="display:none;"><div class="data-name">ちゃんとみママ</div><div class="data-comment">おかえり♡ 今日もいっぱい頑張ったね。楽しかったこと、いっぱい聞かせて？</div><div class="data-twitter">https://twitter.com/Chantomi_VRC</div></div></div>
+                        <div class="cast-card" id="mama-16" onclick="openModal(this)"><img src="assets/images/mama_16.png" alt="napunanaママ"><div class="cast-data" style="display:none;"><div class="data-name">napunanaママ</div><div class="data-comment">おかえりなさい…♡明日のことは一旦忘れて、私に癒やされましょうね♪</div><div class="data-twitter">https://twitter.com/napu_nana</div></div></div>
+                        <div class="cast-card" id="mama-17" onclick="openModal(this)"><img src="assets/images/mama_17.png" alt="MOCAママ"><div class="cast-data" style="display:none;"><div class="data-name">MOCAママ</div><div class="data-comment">おかえりなさい！今日もママとたくさんおしゃべりしよ♡</div><div class="data-twitter">https://twitter.com/MOCAmoca_VRCsub</div></div></div>
+                        <div class="cast-card" id="mama-18" onclick="openModal(this)"><img src="assets/images/mama_18.png" alt="みおりママ"><div class="cast-data" style="display:none;"><div class="data-name">みおりママ</div><div class="data-comment">おかえり…♡今日も一日頑張ってえらいね。ママがぜぇんぶ褒めてあげようね……♡</div><div class="data-twitter">https://twitter.com/mio__miori</div></div></div>
+                        <div class="cast-card" id="mama-19" onclick="openModal(this)"><img src="assets/images/mama_19.png" alt="めめママ"><div class="cast-data" style="display:none;"><div class="data-name">めめママ</div><div class="data-comment">ママのお膝は君のものだよ♡今日もたくさんお話聞かせてね♡</div><div class="data-twitter">https://twitter.com/hotarumeme</div></div></div>
+                        <div class="cast-card" id="mama-20" onclick="openModal(this)"><img src="assets/images/mama_20.png" alt="みかんママ"><div class="cast-data" style="display:none;"><div class="data-name">みかんママ</div><div class="data-comment">おかえり！今日も頑張ってとってもえら～い♡ママにいっぱいいい子いい子させてね♡</div><div class="data-twitter">https://twitter.com/mikan__vrc</div></div></div>
+                        <div class="cast-card" id="mama-21" onclick="openModal(this)"><img src="assets/images/mama_21.png" alt="こいちゃママ"><div class="cast-data" style="display:none;"><div class="data-name">こいちゃママ</div><div class="data-comment">おかえりなさい、いつもおつかれさま。今日はママに甘えにきていいんだよ！</div><div class="data-twitter">https://twitter.com/k0ity4</div></div></div>
+                        <div class="cast-card" id="mama-22" onclick="openModal(this)"><img src="assets/images/mama_22.png" alt="だいすママ"><div class="cast-data" style="display:none;"><div class="data-name">だいすママ</div><div class="data-comment">おかえり！今日あったこと、ママに全部話してよ♥</div><div class="data-twitter">https://twitter.com/comyui_211vt</div></div></div>
+                        <div class="cast-card" id="mama-23" onclick="openModal(this)"><img src="assets/images/mama_23.png" alt="スズメママ"><div class="cast-data" style="display:none;"><div class="data-name">スズメママ</div><div class="data-comment">（一言未設定）</div><div class="data-twitter">https://twitter.com/vrc_ginsuzume</div></div></div>
                     </div>
                 </div>
             </section>
 
             <section id="rules" class="section fade-in-up">
-                <div class="container">
-                    <h2 class="section-title">Rules</h2>
-                    <div class="card rule-card">
-                        <ul>
-                            <li><i class="fa-solid fa-check gold-icon"></i> <strong>PCVR限定</strong> (Quest単体不可)</li>
-                            <li><i class="fa-solid fa-check gold-icon"></i> アバター容量 <strong>50MB以下</strong> (Medium推奨)</li>
-                            <li><i class="fa-solid fa-check gold-icon"></i> 日本語でのコミュニケーション（筆談可）</li>
-                            <li><i class="fa-solid fa-ban red-icon"></i> NSFW行為の禁止・迷惑行為の禁止</li>
-                            <li><i class="fa-regular fa-heart pink-icon"></i> お客様のロールプレイは不要です</li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="container"><h2 class="section-title">Rules</h2><div class="card rule-card"><ul><li><i class="fa-solid fa-check gold-icon"></i> <strong>PCVR限定</strong> (Quest単体不可)</li><li><i class="fa-solid fa-check gold-icon"></i> アバター容量 <strong>50MB以下</strong> (Medium推奨)</li><li><i class="fa-solid fa-check gold-icon"></i> 日本語でのコミュニケーション（筆談可）</li><li><i class="fa-solid fa-ban red-icon"></i> NSFW行為の禁止・迷惑行為の禁止</li><li><i class="fa-regular fa-heart pink-icon"></i> お客様のロールプレイは不要です</li></ul></div></div>
             </section>
             
             <section class="section fade-in-up">
                 <div class="container">
                     <h2 class="section-title">Gallery</h2>
                     <div class="grid-gallery">
-                         <div class="gallery-card">
-                            <img src="assets/images/第2営業.png" alt="2025/10/21 第2営業">
-                            <p class="gallery-caption">2025/10/21 第2営業</p>
-                        </div>
+                         <div class="gallery-card"><img src="assets/images/第2営業.png" alt="2025/10/21 第2営業"><p class="gallery-caption">2025/10/21 第2営業</p></div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer class="footer">
-            <p>&copy; 2025 My Sweet Mummy.</p>
-        </footer>
+        <footer class="footer"><p>&copy; 2025 My Sweet Mummy.</p></footer>
     </div>
 
-    <div id="cast-modal" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModalBtn()">&times;</span>
-            <div class="modal-body">
-                <div class="modal-img-box">
-                    <img id="modal-img" src="" alt="Cast Image">
-                </div>
-                <div class="modal-info">
-                    <h3 id="modal-name">Name</h3>
-                    <p id="modal-comment">Comment</p>
-                    <a id="modal-twitter" href="#" target="_blank" rel="noopener" class="btn-twitter-modal">
-                        <i class="fa-brands fa-x-twitter"></i> X (Twitter)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <div id="cast-modal" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="close-btn" onclick="closeModalBtn()">&times;</span><div class="modal-body"><div class="modal-img-box"><img id="modal-img" src="" alt="Cast Image"></div><div class="modal-info"><h3 id="modal-name">Name</h3><p id="modal-comment">Comment</p><a id="modal-twitter" href="#" target="_blank" rel="noopener" class="btn-twitter-modal"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a></div></div></div></div>
     <div id="cursor-dot"></div>
 
     <script src="assets/js/main.js"></script>
