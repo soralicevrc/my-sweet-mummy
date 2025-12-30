@@ -1,359 +1,260 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Sweet Mummy - VRChat Event</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Sweet Mummy | VRChat Event</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="hero">
-            <h1>My Sweet Mummy</h1>
-            <p class="subtitle">甘えたいあなたへ、至高のバブみを。</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#info">INFORMATION</a></li>
-                <li><a href="#system">SYSTEM</a></li>
-                <li><a href="#cast">CAST</a></li>
-                <li><a href="#gallery">GALLERY</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="info">
-            <h2>INFORMATION</h2>
-            <div class="info-container">
-                <div class="next-event">
-                    <h3>NEXT OPEN</h3>
-                    <p class="date">次回開催をお待ちください</p>
-                    <p class="time">22:00 - 24:00</p>
-                </div>
-                
-                <div class="instance-info">
-                    <div class="instance-group">
-                        <h4>第1インスタンス</h4>
-                        <div class="member-list" id="instance1-members">
-                            <p style="color:#aaa;">TBA</p>
-                        </div>
-                    </div>
-                    
-                    <div class="instance-group">
-                        <h4>第2インスタンス</h4>
-                        <div class="member-list" id="instance2-members">
-                             <p style="color:#aaa;">TBA</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="join-guide">
-                    <p>参加方法：グループインスタンス (Group+)</p>
-                    <p>開催時間にグループ「My Sweet Mummy」のインスタンスへJoinしてください。</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="system">
-            <h2>SYSTEM</h2>
-            <div class="system-box">
-                <p>ここは、ママに甘えたい「赤ちゃん」たちのための場所。</p>
-                <p>やさしいママたちが、あなたを待っています。</p>
-                <ul class="rule-list">
-                    <li>接客スタイル：1対1 または 少人数での対話</li>
-                    <li>料金：無料</li>
-                    <li>写真撮影：可（相手の許可を得てください）</li>
-                </ul>
-            </div>
-        </section>
+<div id="loading-screen">
+<div class="loading-content">
+<h1 class="loading-logo">My Sweet Mummy</h1>
+<div class="loading-line"></div>
+</div>
+</div>
 
-        <section id="cast">
-            <h2>CAST</h2>
-            <div class="cast-grid">
-                <div class="cast-item">
-                    <img src="./images/mama_1.png" alt="あかね">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>あかね</h3>
-                            <a href="https://twitter.com/shark_ar11" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">よしよし、いい子だね。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_2.png" alt="まゆー">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>まゆー</h3>
-                            <a href="https://twitter.com/mayu__VR" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">ゆっくりしていってね。</p>
-                    </div>
-                </div>
+<canvas id="particleCanvas"></canvas>
 
-                <div class="cast-item">
-                    <img src="./images/mama_3.png" alt="酒乱">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>酒乱</h3>
-                            <a href="https://twitter.com/Syuran1862" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">今日はいっぱい甘えていいよ。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_4.png" alt="ゆうなぎ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>ゆうなぎ</h3>
-                            <a href="https://twitter.com/_nagisa_unagi_" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">安心して、ここにいるからね。</p>
-                    </div>
-                </div>
+<header class="header" id="header">
+<div class="header-inner">
+<div class="header-logo">
+<a href="#">My Sweet Mummy</a>
+</div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_5.png" alt="はに">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>はに</h3>
-                            <a href="https://twitter.com/HANIchan0821" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">おいで、なでなでしてあげる。</p>
-                    </div>
-                </div>
+<button class="hamburger" id="hamburger" aria-label="メニューを開く">
+<span></span>
+<span></span>
+<span></span>
+</button>
 
-                <div class="cast-item">
-                    <img src="./images/mama_6.png" alt="なち">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>なち</h3>
-                            <a href="https://twitter.com/nananacchicchi" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">今日も一日がんばったね。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_7.png" alt="ぽぽもち">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>ぽぽもち</h3>
-                            <a href="https://twitter.com/popo_vrc6" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">もちもち癒やされてね。</p>
-                    </div>
-                </div>
+<nav class="nav-menu" id="nav-menu">
+<ul>
+<li><a href="#concept" class="nav-link"><span class="en">Concept</span><span class="jp">コンセプト</span></a></li>
+<li><a href="#info" class="nav-link"><span class="en">Info</span><span class="jp">開催情報</span></a></li>
+<li><a href="#instance" class="nav-link"><span class="en">Instance</span><span class="jp">部屋割り</span></a></li>
+<li><a href="#gift" class="nav-link"><span class="en">Gift</span><span class="jp">贈り物</span></a></li>
+<li><a href="#join" class="nav-link"><span class="en">Join</span><span class="jp">参加方法</span></a></li>
+<li><a href="#cast" class="nav-link"><span class="en">Cast</span><span class="jp">キャスト</span></a></li>
+<li><a href="#rules" class="nav-link"><span class="en">Rules</span><span class="jp">ルール</span></a></li>
+</ul>
+</nav>
+</div>
+</header>
 
-                <div class="cast-item">
-                    <img src="./images/mama_8.png" alt="フルトゥナ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>フルトゥナ</h3>
-                            <a href="https://twitter.com/fortune08270" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">あなたの居場所はここだよ。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_9.png" alt="ひのと">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>ひのと</h3>
-                            <a href="https://twitter.com/AmanomeHinoto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">温かいミルクでもどう？</p>
-                    </div>
-                </div>
+<div class="wrapper">
+<section class="hero">
+<div class="container fade-in">
+<h1 class="hero-text-logo">My Sweet Mummy</h1>
+<h2 class="catchcopy">
+おかえりなさい。<br>
+今夜は少し、休みませんか。
+</h2>
+<div class="scroll-indicator">
+<span>SCROLL</span>
+<div class="line"></div>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_10.png" alt="ちょび">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>ちょび</h3>
-                            <a href="https://twitter.com/tyobibi125" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">ぎゅーってしてあげる。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_11.png" alt="咲">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>咲</h3>
-                            <a href="https://twitter.com/AIuelle_eru" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">そのままでいいんだよ。</p>
-                    </div>
-                </div>
+<main>
+<section id="concept" class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">Concept</h2>
+<div class="card text-center">
+<p class="lead-text">
+毎日がんばるあなたを、<br>
+優しいママたちが全て受け入れます。<br><br>
+心ほどける時間をお過ごしください。
+</p>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_12.png" alt="せさみ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>せさみ</h3>
-                            <a href="https://twitter.com/sesame_vrc" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">お話たくさん聞かせてね。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_13.png" alt="羽澄はしゅ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>羽澄はしゅ</h3>
-                            <a href="https://twitter.com/ika_oi_sea" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">のんびりしていってね。</p>
-                    </div>
-                </div>
+<section id="info" class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">Information</h2>
+<div class="grid-2">
+<div class="card text-center">
+<div class="icon-gold"><i class="fa-regular fa-clock"></i></div>
+<h3>開催日時</h3>
+<p class="info-day">毎週 <span class="gold-text">火曜日</span></p>
+<p class="info-time">22:00 - 23:00</p>
+<div id="countdown" class="badge-count">Next: 計算中...</div>
+</div>
+<div class="card text-center">
+<div class="icon-gold"><i class="fa-solid fa-location-dot"></i></div>
+<h3>開催場所</h3>
+<p class="info-place">VRChat (PCVR Only)</p>
+<a href="https://vrchat.com/home/group/grp_245b88df-3e82-4f2e-b107-5de9433f4d3a" target="_blank" rel="noopener" class="btn-gold" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; margin-top: 1.5rem; text-decoration: none;">
+公式グループ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_14.png" alt="あやっぺ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>あやっぺ</h3>
-                            <a href="https://twitter.com/_ayappe_vrc" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">いい子いい子。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_15.png" alt="ちゃんとみ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>ちゃんとみ</h3>
-                            <a href="https://twitter.com/Chantomi_VRC" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">甘えん坊さん、おいで。</p>
-                    </div>
-                </div>
+<section id="instance" class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">Instance Division</h2>
+<div class="instance-header text-center">
+<p class="instance-date">12月30日 第12回営業日</p>
+<p class="instance-note">※インスタンス割は変更になる場合があります</p>
+</div>
+<div class="grid-2">
+<div class="card instance-card">
+<h3 class="instance-name">Instance 1</h3>
+<div class="host-info">
+<span class="host-label">Host:</span>
+<span class="host-name">ジン__</span>
+<a href="https://vrchat.com/home/user/usr_b6fdc2ee-f561-4576-884a-1f5501ad211f" target="_blank" rel="noopener" class="btn-join">Join <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+<div class="member-list">
+<a href="#mama-5" class="member-item"><img src="assets/images/mama_5.png" alt="はに"><span>はに</span></a>
+<a href="#mama-1" class="member-item"><img src="assets/images/mama_1.png" alt="あかね"><span>あかね</span></a>
+<a href="#mama-11" class="member-item"><img src="assets/images/mama_11.png" alt="咲"><span>咲</span></a>
+<a href="#mama-16" class="member-item"><img src="assets/images/mama_16.png" alt="napunana"><span>napunana</span></a>
+<a href="#mama-7" class="member-item"><img src="assets/images/mama_7.png" alt="ぽぽもち"><span>ぽぽもち</span></a>
+<a href="#mama-18" class="member-item"><img src="assets/images/mama_18.png" alt="みおり"><span>みおり</span></a>
+<a href="#mama-2" class="member-item"><img src="assets/images/mama_2.png" alt="まゆー"><span>まゆー</span></a>
+<a href="#mama-23" class="member-item"><img src="assets/images/mama_23.png" alt="ギンスズメ"><span>ギンスズメ</span></a>
+</div>
+</div>
+<div class="card instance-card">
+<h3 class="instance-name">Instance 2</h3>
+<div class="one-instance-only">
+<p style="margin-top: 2rem; color: #aaa;">本日は1インスタンスのみの営業です。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_16.png" alt="napunana">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>napunana</h3>
-                            <a href="https://twitter.com/napu_nana" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">優しく包んであげるね。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_17.png" alt="MOCA">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>MOCA</h3>
-                            <a href="https://twitter.com/MOCAmoca_VRCsub" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">ゆっくりお休み。</p>
-                    </div>
-                </div>
+<section id="gift" class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">Christmas Gift</h2>
+<div class="gift-container card text-center">
+<div id="gift-box-wrapper" class="gift-box-wrapper" onclick="openGift()">
+<p class="gift-message">ママからの贈り物...</p>
+<div class="gift-box">
+<i class="fa-solid fa-gift"></i>
+<div class="gift-glow"></div>
+</div>
+<p class="click-hint">Click to Open</p>
+</div>
+<div id="gift-content" class="gift-content" style="display: none;">
+<p class="gift-opened-message">Merry Christmas & Happy New Year</p>
+<div class="youtube-wrapper">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=dummy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_18.png" alt="みおり">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>みおり</h3>
-                            <a href="https://twitter.com/mio__miori" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">あなたのままで大丈夫。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_19.png" alt="めめ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>めめ</h3>
-                            <a href="https://twitter.com/hotarumeme" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">全部受け止めるよ。</p>
-                    </div>
-                </div>
+<section id="join" class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">How to Join</h2>
+<div class="step-container">
+<div class="step-card">
+<div class="step-header"><span class="step-num">01</span><h3>事前抽選 / リクイン</h3></div>
+<p>公式X(Twitter)の引用RPによる事前抽選、または当日のJoin戦争(ILへのリクイン)にて受付を行います。</p>
+</div>
+<div class="step-card active-step">
+<div class="step-header"><span class="step-num">02</span><h3>招待リクエスト送信</h3></div>
+<div class="time-highlight">21:55 ～ 21:58</div>
+<p>上記時間内に、指定のスタッフへ招待リクエスト(Req)を<strong class="gold-text">1回だけ</strong>送信してください。</p>
+</div>
+<div class="step-card">
+<div class="step-header"><span class="step-num">03</span><h3>入室 (Join)</h3></div>
+<p>スタッフから招待(Invite)が届きます。通知を受け取り、ワールドへお入りください。</p>
+</div>
+</div>
+<div class="cta-area">
+<a href="https://x.com/MySweetMummy" target="_blank" rel="noopener" class="btn-gold">公式Xで最新情報をチェック <i class="fa-brands fa-x-twitter"></i></a>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_20.png" alt="みかん">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>みかん</h3>
-                            <a href="https://twitter.com/mikan__vrc" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">えらいえらい。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_21.png" alt="こいちゃ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>こいちゃ</h3>
-                            <a href="https://twitter.com/k0ity4" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">今日はもう頑張らなくていいよ。</p>
-                    </div>
-                </div>
+<section id="cast" class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">Mummies</h2>
+<p class="text-center" style="margin-bottom: 2rem; color: #999;">
+画像をクリックすると拡大紹介が表示されます
+</p>
+<div class="grid-gallery">
+<div class="cast-card" id="mama-1" onclick="openModal(this)"><img src="assets/images/mama_1.png" alt="あかねママ"><div class="cast-data" style="display:none;"><div class="data-name">あかねママ</div><div class="data-comment">１日お疲れ様、ママとゆっくり甘い時間過ごそうね♡</div><div class="data-twitter">https://twitter.com/shark_ar11</div></div></div>
+<div class="cast-card" id="mama-2" onclick="openModal(this)"><img src="assets/images/mama_2.png" alt="まゆーママ"><div class="cast-data" style="display:none;"><div class="data-name">まゆーママ</div><div class="data-comment">こっちおいで～!今日は何して遊ぼっか♪</div><div class="data-twitter">https://twitter.com/mayu__VR</div></div></div>
+<div class="cast-card" id="mama-3" onclick="openModal(this)"><img src="assets/images/mama_3.png" alt="酒乱ママ"><div class="cast-data" style="display:none;"><div class="data-name">酒乱ママ</div><div class="data-comment">あらぁ、おかえり。今日もいっぱい遊んで来たのねぇ。さぁ、ママにいっぱいお話聞かせて頂戴、今日はどんなことして遊んできたのかな？</div><div class="data-twitter">https://twitter.com/Syuran1862</div></div></div>
+<div class="cast-card" id="mama-4" onclick="openModal(this)"><img src="assets/images/mama_4.png" alt="ゆうなぎママ"><div class="cast-data" style="display:none;"><div class="data-name">ゆうなぎママ</div><div class="data-comment">おかえり。たまには甘えていいんだよ？♡</div><div class="data-twitter">https://twitter.com/_nagisa_unagi_</div></div></div>
+<div class="cast-card" id="mama-5" onclick="openModal(this)"><img src="assets/images/mama_5.png" alt="はにママ"><div class="cast-data" style="display:none;"><div class="data-name">はにママ</div><div class="data-comment">ママはどんなときもあなたの味方だから甘えたくなったらいつでも帰ってきていいのよ</div><div class="data-twitter">https://twitter.com/HANIchan0821</div></div></div>
+<div class="cast-card" id="mama-6" onclick="openModal(this)"><img src="assets/images/mama_6.png" alt="なちママ"><div class="cast-data" style="display:none;"><div class="data-name">なちママ</div><div class="data-comment">おかえりなさい、お隣においで。ママとゆっくりお話ししましょうね。</div><div class="data-twitter">https://twitter.com/nananacchicchi</div></div></div>
+<div class="cast-card" id="mama-7" onclick="openModal(this)"><img src="assets/images/mama_7.png" alt="ぽぽもちママ"><div class="cast-data" style="display:none;"><div class="data-name">ぽぽもちママ</div><div class="data-comment">おかえり♡今日もママと一緒に楽しい時間を過ごそうね！</div><div class="data-twitter">https://twitter.com/popo_vrc6</div></div></div>
+<div class="cast-card" id="mama-8" onclick="openModal(this)"><img src="assets/images/mama_8.png" alt="フルトゥナママ"><div class="cast-data" style="display:none;"><div class="data-name">フルトゥナママ</div><div class="data-comment">おいで～♡ママといっぱいぎゅ～ってしよ♡</div><div class="data-twitter">https://twitter.com/fortune08270</div></div></div>
+<div class="cast-card" id="mama-9" onclick="openModal(this)"><img src="assets/images/mama_9.png" alt="ひのとママ"><div class="cast-data" style="display:none;"><div class="data-name">ひのとママ</div><div class="data-comment">ママにたくさん甘えてくれるいい子はどこかな〜？</div><div class="data-twitter">https://twitter.com/AmanomeHinoto</div></div></div>
+<div class="cast-card" id="mama-10" onclick="openModal(this)"><img src="assets/images/mama_10.png" alt="ちょびママ"><div class="cast-data" style="display:none;"><div class="data-name">ちょびママ</div><div class="data-comment">おかえり～！今日も頑張ってえらいねえ、たくさん甘えていいんだよ～</div><div class="data-twitter">https://twitter.com/tyobibi125</div></div></div>
+<div class="cast-card" id="mama-11" onclick="openModal(this)"><img src="assets/images/mama_11.png" alt="咲ママ"><div class="cast-data" style="display:none;"><div class="data-name">咲ママ</div><div class="data-comment">おかえりなさい。今日はどんな一日だったの？よかったらママに聞かせてほしいな？</div><div class="data-twitter">https://twitter.com/AIuelle_eru</div></div></div>
+<div class="cast-card" id="mama-12" onclick="openModal(this)"><img src="assets/images/mama_12.png" alt="せさみママ"><div class="cast-data" style="display:none;"><div class="data-name">せさみママ</div><div class="data-comment">おかえりなさい。今日もよく頑張ったね～。ママにいっぱい甘えていいからね</div><div class="data-twitter">https://twitter.com/sesame_vrc</div></div></div>
+<div class="cast-card" id="mama-13" onclick="openModal(this)"><img src="assets/images/mama_13.png" alt="羽澄はしゅママ"><div class="cast-data" style="display:none;"><div class="data-name">羽澄はしゅママ</div><div class="data-comment">今日はどんな一日だった？ママにもお話聞かせてくれたらうれしいな～！</div><div class="data-twitter">https://twitter.com/ika_oi_sea</div></div></div>
+<div class="cast-card" id="mama-14" onclick="openModal(this)"><img src="assets/images/mama_14.png" alt="あやっぺママ"><div class="cast-data" style="display:none;"><div class="data-name">あやっぺママ</div><div class="data-comment">おかえりなさい、今日も一日おつかれさま。よかったらママに今日の事、たくさん聞かせて？</div><div class="data-twitter">https://twitter.com/_ayappe_vrc</div></div></div>
+<div class="cast-card" id="mama-15" onclick="openModal(this)"><img src="assets/images/mama_15.png" alt="ちゃんとみママ"><div class="cast-data" style="display:none;"><div class="data-name">ちゃんとみママ</div><div class="data-comment">おかえり♡ 今日もいっぱい頑張ったね。楽しかったこと、いっぱい聞かせて？</div><div class="data-twitter">https://twitter.com/Chantomi_VRC</div></div></div>
+<div class="cast-card" id="mama-16" onclick="openModal(this)"><img src="assets/images/mama_16.png" alt="napunanaママ"><div class="cast-data" style="display:none;"><div class="data-name">napunanaママ</div><div class="data-comment">おかえりなさい…♡明日のことは一旦忘れて、私に癒やされましょうね♪</div><div class="data-twitter">https://twitter.com/napu_nana</div></div></div>
+<div class="cast-card" id="mama-17" onclick="openModal(this)"><img src="assets/images/mama_17.png" alt="MOCAママ"><div class="cast-data" style="display:none;"><div class="data-name">MOCAママ</div><div class="data-comment">おかえりなさい！今日もママとたくさんおしゃべりしよ♡</div><div class="data-twitter">https://twitter.com/MOCAmoca_VRCsub</div></div></div>
+<div class="cast-card" id="mama-18" onclick="openModal(this)"><img src="assets/images/mama_18.png" alt="みおりママ"><div class="cast-data" style="display:none;"><div class="data-name">みおりママ</div><div class="data-comment">おかえり…♡今日も一日頑張ってえらいね。ママがぜぇんぶ褒めてあげようね……♡</div><div class="data-twitter">https://twitter.com/mio__miori</div></div></div>
+<div class="cast-card" id="mama-19" onclick="openModal(this)"><img src="assets/images/mama_19.png" alt="めめママ"><div class="cast-data" style="display:none;"><div class="data-name">めめママ</div><div class="data-comment">ママのお膝は君のものだよ♡今日もたくさんお話聞かせてね♡</div><div class="data-twitter">https://twitter.com/hotarumeme</div></div></div>
+<div class="cast-card" id="mama-20" onclick="openModal(this)"><img src="assets/images/mama_20.png" alt="みかんママ"><div class="cast-data" style="display:none;"><div class="data-name">みかんママ</div><div class="data-comment">おかえり！今日も頑張ってとってもえら～い♡ママにいっぱいいい子いい子させてね♡</div><div class="data-twitter">https://twitter.com/mikan__vrc</div></div></div>
+<div class="cast-card" id="mama-21" onclick="openModal(this)"><img src="assets/images/mama_21.png" alt="こいちゃママ"><div class="cast-data" style="display:none;"><div class="data-name">こいちゃママ</div><div class="data-comment">おかえりなさい、いつもおつかれさま。今日はママに甘えにきていいんだよ！</div><div class="data-twitter">https://twitter.com/k0ity4</div></div></div>
+<div class="cast-card" id="mama-22" onclick="openModal(this)"><img src="assets/images/mama_22.png" alt="だいすママ"><div class="cast-data" style="display:none;"><div class="data-name">だいすママ</div><div class="data-comment">おかえり！今日あったこと、ママに全部話してよ♥</div><div class="data-twitter">https://twitter.com/comyui_211vt</div></div></div>
+<div class="cast-card" id="mama-23" onclick="openModal(this)"><img src="assets/images/mama_23.png" alt="スズメママ"><div class="cast-data" style="display:none;"><div class="data-name">スズメママ</div><div class="data-comment">（一言未設定）</div><div class="data-twitter">https://twitter.com/vrc_ginsuzume</div></div></div>
+<div class="cast-card" id="mama-24" onclick="openModal(this)"><img src="assets/images/mama_24.png" alt="そらりすママ"><div class="cast-data" style="display:none;"><div class="data-name">そらりすママ</div><div class="data-comment">『ちゃんとしなきゃ』はダメですよ〜 今日はママの前で、思いっきり甘えに来てね。</div><div class="data-twitter">https://x.com/sora_kmsk</div></div></div>
+</div>
+</div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_22.png" alt="だいす">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>だいす</h3>
-                            <a href="https://twitter.com/comyui_211vt" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">すやすや眠れるまで側にいるね。</p>
-                    </div>
-                </div>
 
-                <div class="cast-item">
-                    <img src="./images/mama_23.png" alt="スズメ">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>スズメ</h3>
-                            <a href="https://twitter.com/vrc_ginsuzume" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">ちゅんちゅん、よしよし。</p>
-                    </div>
-                </div>
+<section id="rules" class="section fade-in-up">
+<div class="container"><h2 class="section-title">Rules</h2><div class="card rule-card"><ul><li><i class="fa-solid fa-check gold-icon"></i> <strong>PCVR限定</strong> (Quest単体不可)</li><li><i class="fa-solid fa-check gold-icon"></i> アバター容量 <strong>50MB以下</strong> (Medium推奨)</li><li><i class="fa-solid fa-check gold-icon"></i> 日本語でのコミュニケーション（筆談可）</li><li><i class="fa-solid fa-ban red-icon"></i> NSFW行為の禁止・迷惑行為の禁止</li><li><i class="fa-regular fa-heart pink-icon"></i> お客様のロールプレイは不要です</li></ul></div></div>
+</section>
 
-                <div class="cast-item">
-                    <img src="./images/mama_24.png" alt="そらりす">
-                    <div class="cast-info">
-                        <div class="name-twitter">
-                            <h3>そらりす</h3>
-                            <a href="https://x.com/sora_kmsk" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        </div>
-                        <p class="comment">『ちゃんとしなきゃ』はダメですよ〜 今日はママの前で、思いっきり甘えに来てね。</p>
-                    </div>
-                </div>
+<section class="section fade-in-up">
+<div class="container">
+<h2 class="section-title">Gallery</h2>
+<div class="grid-gallery">
+<div class="gallery-card"><img src="assets/images/第2営業.png" alt="2025/10/21 第2営業"><p class="gallery-caption">2025/10/21 第2営業</p></div>
+</div>
+</div>
+</section>
+</main>
 
-            </div>
-        </section>
 
-        <section id="gallery">
-            <h2>GALLERY</h2>
-            <div class="gallery-grid" id="gallery-container">
-                <img src="./images/gallery1.png" alt="思い出の一枚">
-                <img src="./images/gallery2.png" alt="思い出の一枚">
-                <img src="./images/gallery3.png" alt="思い出の一枚">
-            </div>
-        </section>
-    </main>
+<footer class="footer"><p>&copy; 2025 My Sweet Mummy.</p></footer>
+</div>
 
-    <footer>
-        <p class="copyright">&copy; 2024 My Sweet Mummy. All Rights Reserved.</p>
-    </footer>
 
-    <script src="main.js"></script>
+<a href="#" id="back-to-top" aria-label="Topへ戻る"><i class="fa-solid fa-chevron-up"></i></a>
+
+
+<div id="cast-modal" class="modal-overlay" onclick="closeModal(event)"><div class="modal-content"><span class="close-btn" onclick="closeModalBtn()">&times;</span><div class="modal-body"><div class="modal-img-box"><img id="modal-img" src="" alt="Cast Image"></div><div class="modal-info"><h3 id="modal-name">Name</h3><p id="modal-comment">Comment</p><a id="modal-twitter" href="#" target="_blank" rel="noopener" class="btn-twitter-modal"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a></div></div></div></div>
+
+<div id="cursor-dot"></div>
+
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
